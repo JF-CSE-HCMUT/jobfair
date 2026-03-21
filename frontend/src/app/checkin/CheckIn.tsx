@@ -5,6 +5,7 @@ import AchievementsSection from "../../components/AchievementSection.tsx";
 import Footer from "../../components/footer.tsx";
 import "./checkin.css";
 import Sponsor from "../../components/theSponsor.tsx";
+import View from "../../components/MapView.tsx";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Sponsor />
       <AboutSponsor />
       <AchievementsSection />
+      <View modelUrl="/a.glb" />
       <Footer />
     </div>
   );

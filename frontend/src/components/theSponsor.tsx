@@ -3,13 +3,13 @@ import { ChevronDown } from "lucide-react";
 
 const theSponsor = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero">
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero py-16 sm:py-20">
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto w-full">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gold font-display font-medium text-[30pt] mb-4 tracking-wider uppercase"
+          className="text-gold font-display font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide uppercase"
         >
           Welcome to CSE JOB FAIR 2026
         </motion.p>
@@ -18,11 +18,11 @@ const theSponsor = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-8"
+          className="mb-6 sm:mb-8"
         >
 
 
-          <img src="/CSExJF.png" className="h-[200pt] w-auto block mx-auto" aria-hidden="true" />
+          <img src="/CSExJF.png" className="h-28 sm:h-36 md:h-44 lg:h-52 w-auto max-w-full block mx-auto" aria-hidden="true" />
           
         </motion.div>
 
@@ -30,7 +30,7 @@ const theSponsor = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-gold text-[22pt]  mx-auto mb-12 leading-relaxed"
+          className="text-gold text-base sm:text-lg md:text-xl mx-auto mb-10 sm:mb-12 leading-relaxed max-w-3xl"
         >
           Connect with top companies and discover career opportunities at the biggest CSE career event of 2026.
         </motion.p>
@@ -40,24 +40,24 @@ const theSponsor = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="space-y-6"
+          className="space-y-8 sm:space-y-10"
         >
           <div>
-            <p className="text-gold/80 text-[22pt] uppercase tracking-[0.2em] mb-3 font-medium">Diamond Sponsor</p>
-            <div className="flex justify-center gap-12 items-center">
-              <img src="/VNG.png" alt="" className="h-[80pt] w-auto object-contain" aria-hidden="true" />
-              <img src="/NVIDIA2.png" alt="" className="h-[110pt] w-auto object-contain" aria-hidden="true" /> 
-              <img src="/KMS.png" alt="" className="h-[90pt] w-auto object-contain" aria-hidden="true" />
+            <p className="text-gold/80 text-lg sm:text-xl md:text-2xl uppercase tracking-[0.14em] sm:tracking-[0.2em] mb-3 font-medium">Diamond Sponsor</p>
+            <div className="flex flex-wrap justify-center gap-5 sm:gap-8 md:gap-12 items-center">
+              <img src="/VNG.png" alt="" className="h-14 sm:h-16 md:h-20 w-auto max-w-[40vw] sm:max-w-none object-contain" aria-hidden="true" />
+              <img src="/NVIDIA2.png" alt="" className="h-16 sm:h-20 md:h-24 w-auto max-w-[50vw] sm:max-w-none object-contain" aria-hidden="true" /> 
+              <img src="/KMS.png" alt="" className="h-14 sm:h-16 md:h-20 w-auto max-w-[45vw] sm:max-w-none object-contain" aria-hidden="true" />
             </div>                                            
           </div>
           <div>
-            <p className="text-gold/80 text-[22pt] uppercase tracking-[0.2em] mb-3 font-medium py-5">Gold Sponsor</p>
-            <div className="flex justify-center gap-12 items-center  ">
-                <img src="/FPT.png" alt="" className="h-[60pt] w-auto object-contain" aria-hidden="true" />
-                <img src="/SACOM.png" alt="" className="h-[60pt] w-auto object-contain" aria-hidden="true" /> 
-                <img src="/Veri.png" alt="" className="h-[60pt] w-auto object-contain" aria-hidden="true" />
-                <img src="/ISB.png" alt="" className="h-[60pt] w-auto object-contain" aria-hidden="true" />
-                <img src="/Nexon.png" alt="" className="h-[60pt] w-auto object-contain" aria-hidden="true" />
+            <p className="text-gold/80 text-lg sm:text-xl md:text-2xl uppercase tracking-[0.14em] sm:tracking-[0.2em] mb-3 font-medium pt-3 sm:pt-5">Gold Sponsor</p>
+            <div className="flex flex-wrap justify-center gap-5 sm:gap-8 md:gap-10 items-center">
+                <img src="/FPT.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
+                <img src="/SACOM.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" /> 
+                <img src="/Veri.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
+                <img src="/ISB.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
+                <img src="/Nexon.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
             </div>
           </div>
         </motion.div>
