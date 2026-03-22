@@ -3,37 +3,32 @@ import { ChevronDown } from "lucide-react";
 
 const theSponsor = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero py-16 sm:py-20">
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto w-full">
-        <motion.p
+    <section className="relative flex items-start justify-center overflow-hidden pt-0 pb-8 sm:pb-10">
+      <div className="relative z-10 px-4 sm:px-6 max-w-7xl mx-auto w-full">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gold font-display font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 tracking-wide uppercase"
+          className="mb-10 sm:mb-12 rounded-2xl bg-slate-100 px-6 py-0 sm:px-10 md:px-12 md:py-5"
         >
-          Welcome to CSE JOB FAIR 2026
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-6 sm:mb-8"
-        >
-
-
-          <img src="/CSExJF.png" className="h-28 sm:h-36 md:h-44 lg:h-52 w-auto max-w-full block mx-auto" aria-hidden="true" />
-          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="text-left">
+              <h2 className="text-indigo-900 font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-3">
+                Chào mừng bạn đến với CSE JOB FAIR 2026
+              </h2>
+              <p className="text-indigo-900/90 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl">
+                Kết nối với các công ty hàng đầu và khám phá cơ hội nghề nghiệp tại sự kiện việc làm lớn nhất khoa Khoa học và Kỹ thuật Máy tính năm 2026.
+              </p>
+            </div>
+            <div className="flex justify-center md:justify-end">
+              <img
+                src="/CSExJF.png"
+                className="h-24 sm:h-32 md:h-44 lg:h-52 w-auto max-w-full object-contain"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
         </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-gold text-base sm:text-lg md:text-xl mx-auto mb-10 sm:mb-12 leading-relaxed max-w-3xl"
-        >
-          Connect with top companies and discover career opportunities at the biggest CSE career event of 2026.
-        </motion.p>
 
         {/* Sponsor tiers */}
         <motion.div
@@ -43,7 +38,7 @@ const theSponsor = () => {
           className="space-y-8 sm:space-y-10"
         >
           <div>
-            <p className="text-gold/80 text-lg sm:text-xl md:text-2xl uppercase tracking-[0.14em] sm:tracking-[0.2em] mb-3 font-medium">Diamond Sponsor</p>
+            <p className="text-gold/80 text-lg py-5 sm:text-xl md:text-2xl uppercase tracking-[0.14em] sm:tracking-[0.1em] mb-3 font-medium text-center">Đối tác chiến lược</p>
             <div className="flex flex-wrap justify-center gap-5 sm:gap-8 md:gap-12 items-center">
               <img src="/VNG.png" alt="" className="h-14 sm:h-16 md:h-20 w-auto max-w-[40vw] sm:max-w-none object-contain" aria-hidden="true" />
               <img src="/NVIDIA2.png" alt="" className="h-16 sm:h-20 md:h-24 w-auto max-w-[50vw] sm:max-w-none object-contain" aria-hidden="true" /> 
@@ -51,13 +46,20 @@ const theSponsor = () => {
             </div>                                            
           </div>
           <div>
-            <p className="text-gold/80 text-lg sm:text-xl md:text-2xl uppercase tracking-[0.14em] sm:tracking-[0.2em] mb-3 font-medium pt-3 sm:pt-5">Gold Sponsor</p>
-            <div className="flex flex-wrap justify-center gap-5 sm:gap-8 md:gap-10 items-center">
-                <img src="/FPT.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
-                <img src="/SACOM.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" /> 
+            <p className="text-gold/80 text-lg py-5 sm:text-xl md:text-2xl uppercase tracking-[0.14em] sm:tracking-[0.1em] mb-3 font-medium text-center pt-3 sm:pt-5">Đồng hành và phát triển</p>
+            <div className="space-y-4 sm:space-y-6 md:space-y-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 md:gap-10 items-center justify-items-center">
+                <img src="/FS.png" alt="" className="h-12 sm:h-14 md:h-16 w-auto max-w-[40vw] sm:max-w-none object-contain" aria-hidden="true" />
+                <img src="/SACOM.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
                 <img src="/Veri.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
                 <img src="/ISB.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 md:gap-10 items-center justify-items-center">
                 <img src="/Nexon.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
+                <img src="/FJ.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
+                <img src="/GL.png" alt="" className="h-10 sm:h-12 md:h-14 w-auto max-w-[35vw] sm:max-w-none object-contain" aria-hidden="true" />
+                <img src="/BV.png" alt="" className="h-18 sm:h-22 md:h-36 w-auto max-w-[55vw] sm:max-w-none object-contain" aria-hidden="true" />
+              </div>
             </div>
           </div>
         </motion.div>

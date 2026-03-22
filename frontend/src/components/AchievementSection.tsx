@@ -34,7 +34,7 @@ const AchievementsSection = () => {
             viewport={{ once: true }}
             className="font-display font-bold text-3xl md:text-4xl text-foreground                                                                  "
           >
-            Achievements
+           Đợi content NNUN
           </motion.h2>
           <div className="flex gap-2">
             <button
