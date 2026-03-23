@@ -8,8 +8,8 @@
 }
 
 .home-page__main>section[id] {
-    min-height: calc(100vh - var(--navbar-height));
-    scroll-margin-top: calc(var(--navbar-height) + 10px);
+    min-height: calc(100svh - var(--navbar-height));
+    scroll-margin-top: var(--navbar-height);
 }
 
 .home-page__map-placeholder {
@@ -25,6 +25,7 @@
     border: 1px solid var(--border-color);
     border-radius: 18px;
     background: #ffffff;
+    text-align: center;
 }
 
 .home-page__map-placeholder h2 {

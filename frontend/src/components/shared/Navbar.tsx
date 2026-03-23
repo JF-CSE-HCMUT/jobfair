@@ -13,7 +13,7 @@ const homeItems: NavItem[] = [
     { label: "Tài trợ", href: "/#sponsors" },
     { label: "Đồng hành", href: "/#partner-stories" },
     { label: "Hành trình", href: "/#milestones" },
-    { label: "Bộ nhận diện", href: "/#brand-identity" },
+    { label: "Bộ nhận diện", href: "/brand-assets" },
     { label: "Bản đồ", href: "/#venue-map" },
     { label: "Liên hệ", href: "/#contact" },
 ];

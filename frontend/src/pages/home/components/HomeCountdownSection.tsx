@@ -137,7 +137,7 @@ const HomeCountdownSection = () => {
                             allowFullScreen
                         />
                     ) : (
-                        <div className="home-countdown__video-placeholder">Video sẽ tải khi bạn cuộn đến khu vực này.</div>
+                        <div className="home-countdown__video-placeholder">Video giới thiệu CSE Job Fair 2026</div>
                     )}
                 </div>
             </div>

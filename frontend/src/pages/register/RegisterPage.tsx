@@ -1,5 +1,5 @@
 import Navbar from "../../components/shared/Navbar";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Footer from "../../components/shared/Footer";
 import heroLeft from "../../assets/hero/hero-10.jpg";
 import heroRight from "../../assets/hero/hero-03.jpg";
@@ -40,15 +40,8 @@ const registerOptions: RegisterOption[] = [
 const RegisterPage = () => {
     const [activeOption, setActiveOption] = useState<RegisterOption["key"] | null>(null);
 
-    const activeFormUrl = useMemo(() => {
-        const current = registerOptions.find((item) => item.key === activeOption) ?? registerOptions[0];
-        return `${current.formUrl}?embedded=true`;
-    }, [activeOption]);
-
-    const selectedOption = useMemo(
-        () => registerOptions.find((item) => item.key === activeOption) ?? null,
-        [activeOption],
-    );
+    const selectedOption = registerOptions.find((item) => item.key === activeOption) ?? null;
+    const activeFormUrl = `${(selectedOption ?? registerOptions[0]).formUrl}?embedded=true`;
 
     const showSelection = selectedOption === null;
 

@@ -150,6 +150,7 @@
 
 .home-countdown__video-section {
     position: relative;
+    height: calc(100vh - var(--navbar-height));
     min-height: calc(100vh - var(--navbar-height));
 }
 
@@ -165,6 +166,8 @@
     place-items: center;
     width: 100%;
     height: 100%;
+    padding: 1rem;
+    text-align: center;
     color: #ffffff;
     font-weight: 600;
     background: linear-gradient(135deg, #153055, #1b3e66);
@@ -188,6 +191,7 @@
     }
 
     .home-countdown__video-section {
+        height: calc(100vh - var(--navbar-height));
         min-height: calc(100vh - var(--navbar-height));
     }
 }

@@ -1,0 +1,86 @@
+.brand-assets-page {
+    min-height: 100vh;
+    background: var(--surface-base);
+}
+
+.brand-assets-page__main {
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+    padding: calc(var(--navbar-height) + 1.1rem) 0 1.6rem;
+}
+
+.brand-assets-page__hero h1 {
+    margin: 0;
+    color: var(--text-main);
+    font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+}
+
+.brand-assets-page__hero p {
+    margin: 0.6rem 0 0;
+    color: var(--text-muted);
+    max-width: 760px;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.brand-assets-page__grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.brand-assets-page__item {
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.brand-assets-page__image {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.brand-assets-page__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.7rem;
+    padding: 0.78rem 0.9rem;
+}
+
+.brand-assets-page__name {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.brand-assets-page__download-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.78rem;
+    border-radius: 10px;
+    background: var(--accent-orange);
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.86rem;
+}
+
+.brand-assets-page__download-link:hover {
+    background: var(--accent-orange-hover);
+}
+
+@media (max-width: 960px) {
+    .brand-assets-page__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-assets-page__image {
+        height: 220px;
+    }
+}

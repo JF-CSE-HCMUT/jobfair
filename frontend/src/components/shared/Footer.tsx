@@ -1,12 +1,12 @@
 import "./Footer.css";
 
 const quickLinks = [
-    { label: "Trang chủ", href: "#overview" },
-    { label: "Tài trợ", href: "#sponsors" },
-    { label: "Đồng hành", href: "#partner-stories" },
-    { label: "Hành trình", href: "#milestones" },
-    { label: "Bộ nhận diện", href: "#brand-identity" },
-    { label: "Bản đồ", href: "#venue-map" },
+    { label: "Trang chủ", href: "/#overview" },
+    { label: "Tài trợ", href: "/#sponsors" },
+    { label: "Đồng hành", href: "/#partner-stories" },
+    { label: "Hành trình", href: "/#milestones" },
+    { label: "Bộ nhận diện", href: "/brand-assets" },
+    { label: "Bản đồ", href: "/#venue-map" },
 ];
 
 const Footer = () => {
@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="shared-footer__inner">
                 <div className="shared-footer__brand">
                     <img src="/logo.png" alt="CSE Job Fair" className="shared-footer__logo" />
-                    <div>
+                    <div className="shared-footer__brand-copy">
                         <p className="shared-footer__title">CSE JOB FAIR 2026</p>
                         <p className="shared-footer__subtitle">Ngày hội Việc làm khoa Khoa học và Kỹ thuật Máy tính</p>
                     </div>
@@ -24,7 +24,7 @@ const Footer = () => {
                 <div className="shared-footer__links">
                     <p className="shared-footer__heading">Truy cập nhanh</p>
                     {quickLinks.map((item) => (
-                        <a key={item.label} href={`/${item.href}`} className="shared-footer__link">
+                        <a key={item.label} href={item.href} className="shared-footer__link">
                             {item.label}
                         </a>
                     ))}

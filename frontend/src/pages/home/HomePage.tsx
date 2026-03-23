@@ -5,7 +5,6 @@ import HomeCountdownSection from "./components/HomeCountdownSection";
 import SponsorOverviewSection from "./components/SponsorOverviewSection";
 import SponsorDetailSection from "./components/SponsorDetailSection";
 import MilestonesSection from "./components/MilestonesSection";
-import BrandIdentitySection from "./components/BrandIdentitySection";
 import "./HomePage.css";
 
 const VenueMapSection = lazy(() => import("./components/VenueMapSection"));
@@ -42,7 +41,6 @@ const HomePage = () => {
                 <SponsorOverviewSection />
                 <SponsorDetailSection />
                 <MilestonesSection />
-                <BrandIdentitySection />
                 {shouldRenderMap ? (
                     <Suspense
                         fallback={
