@@ -20,7 +20,7 @@
 .home-milestones__intro {
     margin: 0.7rem 0 0;
     color: var(--text-muted);
-    max-width: 760px;
+    max-width: auto;
 }
 
 .home-milestones__grid {
@@ -43,7 +43,7 @@
 .home-milestones__card h3 {
     margin: 0;
     color: var(--text-main);
-    font-size: 1.2rem;
+    font-size: 1.7rem;
 }
 
 .home-milestones__card p {

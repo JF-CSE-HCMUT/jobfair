@@ -3,15 +3,15 @@ import "./SponsorOverviewSection.css";
 
 type Tier = {
     name: string;
-    content: "diamond" | "gold" | "empty";
+    content: "diamond" | "gold" | "silver" | "bronze" | "empty";
 };
 
 const tiers: Tier[] = [
     { name: "Nhà tài trợ năm", content: "empty" },
     { name: "Kim cương", content: "diamond" },
     { name: "Vàng", content: "gold" },
-    { name: "Bạc", content: "empty" },
-    { name: "Đồng", content: "empty" },
+    { name: "Bạc", content: "silver" },
+    { name: "Đồng", content: "bronze" },
 ];
 
 const SponsorOverviewSection = () => {
@@ -54,16 +54,30 @@ const SponsorOverviewSection = () => {
 
                             {tier.content === "gold" && (
                                 <div className="home-sponsor-overview__tier-rows">
-                                    <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--gold-row">
+                                    <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--gold-row-3">
                                         <img src="/FS.png" alt="FPT Software" />
-                                        <img src="/SACOM.png" alt="Sacombank" />
                                         <img src="/Veri.png" alt="Veri Silicon" />
-                                        <img src="/ISB.png" alt="ISB" />
-                                    </div>
-                                    <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--gold-row">
                                         <img src="/Nexon.png" alt="Nexon" />
-                                        <img src="/FJ.png" alt="Fujinet" />
+                                    </div>
+                                    <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--gold-row-2">
+                                        <img src="/ISB.png" alt="ISB" />
+                                        <img src="/SACOM.png" alt="Sacombank" />
+                                    </div>
+                                </div>
+                            )}
+
+                            {tier.content === "silver" && (
+                                <div className="home-sponsor-overview__tier-rows">
+                                    <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--silver-row">
                                         <img src="/GL.png" alt="Gameloft" />
+                                    </div>
+                                </div>
+                            )}
+
+                            {tier.content === "bronze" && (
+                                <div className="home-sponsor-overview__tier-rows">
+                                    <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--bronze-row">
+                                        <img src="/FJ.png" alt="Fujinet" />
                                         <img src="/BV.png" alt="BV" />
                                     </div>
                                 </div>
