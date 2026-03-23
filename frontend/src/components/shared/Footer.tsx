@@ -3,7 +3,7 @@ import "./Footer.css";
 const quickLinks = [
     { label: "Trang chủ", href: "/#overview" },
     { label: "Tài trợ", href: "/#sponsors" },
-    { label: "Đồng hành", href: "/#partner-stories" },
+    { label: "Đồng hành", href: "/#partners" },
     { label: "Hành trình", href: "/#milestones" },
     { label: "Bộ nhận diện", href: "/brand-assets" },
     { label: "Bản đồ", href: "/#venue-map" },

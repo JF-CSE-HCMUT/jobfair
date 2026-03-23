@@ -1,20 +1,31 @@
 .home-sponsor-overview {
-    padding: 1.2rem 0 1rem;
+    padding: 1.2rem 0;
+    min-height: calc(100dvh - var(--navbar-height));
+    display: grid;
+    align-items: start;
+    scroll-margin-top: 8px;
 }
 
 .home-sponsor-overview__container {
     width: min(1200px, 92vw);
     margin: 0 auto;
+    display: grid;
+    gap: clamp(0.9rem, 2vw, 1.35rem);
 }
 
 .home-sponsor-overview__intro {
     display: grid;
-    grid-template-columns: 1.4fr 0.9fr;
-    gap: 1rem;
+    grid-template-columns: 1.2fr 0.9fr;
+    gap: clamp(1rem, 3vw, 2rem);
     align-items: center;
-    padding: 1.2rem 1.4rem;
+    padding: clamp(1.1rem, 2.6vw, 1.6rem) clamp(1.1rem, 2.8vw, 1.8rem);
     border-radius: 18px;
     background: #f2f6fb;
+}
+
+.home-sponsor-overview__intro-copy {
+    display: grid;
+    gap: 0.55rem;
 }
 
 .home-sponsor-overview__title {
@@ -22,24 +33,32 @@
     color: #173760;
     font-family: var(--font-display);
     font-size: clamp(1.5rem, 3vw, 2.4rem);
+    line-height: 1.22;
 }
 
 .home-sponsor-overview__desc {
-    margin: 0.6rem 0 0;
+    margin: 0;
     color: #29466c;
     line-height: 1.45;
+    max-width: 46ch;
 }
 
 .home-sponsor-overview__hero-logo {
     width: min(100%, 360px);
+    max-height: 180px;
     justify-self: center;
     object-fit: contain;
 }
 
 .home-sponsor-overview__tiers {
-    margin-top: 1rem;
     display: grid;
-    gap: 1rem;
+    gap: clamp(0.8rem, 1.8vw, 1.1rem);
+    align-content: center;
+}
+
+.home-sponsor-overview__tier {
+    display: grid;
+    gap: 0.25rem;
 }
 
 .home-sponsor-overview__tier-name {
@@ -47,16 +66,19 @@
     text-align: center;
     color: #9f7520;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: clamp(1.45rem, 2.6vw, 2rem);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    line-height: 1.12;
 }
 
 .home-sponsor-overview__tier-logos {
-    margin-top: 1rem;
+    margin-top: 1.05rem;
     display: grid;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: clamp(0.8rem, 1.8vw, 1.2rem);
+    width: 100%;
 }
 
 .home-sponsor-overview__tier-logos img {
@@ -67,11 +89,11 @@
 }
 
 .home-sponsor-overview__tier-logos--diamond {
-    grid-template-columns: repeat(3, minmax(120px, 190px));
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
 }
 
 .home-sponsor-overview__tier-rows {
-    margin-top: 1rem;
+    margin-top: 1.05rem;
     display: grid;
     gap: 0.85rem;
 }
@@ -92,7 +114,7 @@
 
 .home-sponsor-overview__tier-logos--gold-row {
     margin-top: 0;
-    grid-template-columns: repeat(4, minmax(110px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 180px));
 }
 
 .home-sponsor-overview__tier-logos--gold-row img {
@@ -102,6 +124,11 @@
 @media (max-width: 900px) {
     .home-sponsor-overview__intro {
         grid-template-columns: 1fr;
+    }
+
+    .home-sponsor-overview__intro-copy {
+        justify-items: center;
+        text-align: center;
     }
 
     .home-sponsor-overview__tier-logos--diamond {

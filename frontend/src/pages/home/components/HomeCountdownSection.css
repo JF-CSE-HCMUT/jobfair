@@ -5,7 +5,7 @@
 
 .home-countdown__hero {
     position: relative;
-    min-height: calc(100vh - var(--navbar-height));
+    min-height: calc(100dvh - var(--navbar-height));
     display: grid;
     place-items: center;
     padding: 1.1rem;
@@ -150,8 +150,8 @@
 
 .home-countdown__video-section {
     position: relative;
-    height: calc(100vh - var(--navbar-height));
-    min-height: calc(100vh - var(--navbar-height));
+    height: calc(100dvh - var(--navbar-height));
+    min-height: calc(100dvh - var(--navbar-height));
 }
 
 .home-countdown__video {
@@ -175,7 +175,7 @@
 
 @media (max-width: 640px) {
     .home-countdown__hero {
-        min-height: calc(100vh - var(--navbar-height));
+        min-height: calc(100dvh - var(--navbar-height));
         padding: 0.75rem;
     }
 
@@ -191,7 +191,7 @@
     }
 
     .home-countdown__video-section {
-        height: calc(100vh - var(--navbar-height));
-        min-height: calc(100vh - var(--navbar-height));
+        height: calc(100dvh - var(--navbar-height));
+        min-height: calc(100dvh - var(--navbar-height));
     }
 }

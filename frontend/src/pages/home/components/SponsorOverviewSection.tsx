@@ -3,15 +3,14 @@ import "./SponsorOverviewSection.css";
 
 type Tier = {
     name: string;
-    content: "diamond" | "gold" | "empty";
+    content: "diamond" | "gold" | "silver" | "bronze" | "empty";
 };
 
 const tiers: Tier[] = [
-    { name: "Nhà tài trợ năm", content: "empty" },
     { name: "Kim cương", content: "diamond" },
     { name: "Vàng", content: "gold" },
-    { name: "Bạc", content: "empty" },
-    { name: "Đồng", content: "empty" },
+    { name: "Bạc", content: "silver" },
+    { name: "Đồng", content: "bronze" },
 ];
 
 const SponsorOverviewSection = () => {
@@ -24,7 +23,7 @@ const SponsorOverviewSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div>
+                    <div className="home-sponsor-overview__intro-copy">
                         <h2 className="home-sponsor-overview__title">Chào mừng bạn đến với CSE JOB FAIR 2026</h2>
                         <p className="home-sponsor-overview__desc">
                             Kết nối với các công ty hàng đầu và khám phá cơ hội nghề nghiệp tại sự kiện việc làm lớn nhất của khoa.
@@ -46,9 +45,9 @@ const SponsorOverviewSection = () => {
                             <p className="home-sponsor-overview__tier-name">{tier.name}</p>
                             {tier.content === "diamond" && (
                                 <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--diamond">
-                                    <img src="/NVIDIA2.png" alt="NVIDIA" />
                                     <img src="/VNG.png" alt="VNG" />
                                     <img src="/KMS.png" alt="KMS" />
+                                    <img src="/NVIDIA2.png" alt="NVIDIA" />
                                 </div>
                             )}
 
@@ -57,15 +56,25 @@ const SponsorOverviewSection = () => {
                                     <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--gold-row">
                                         <img src="/FS.png" alt="FPT Software" />
                                         <img src="/SACOM.png" alt="Sacombank" />
-                                        <img src="/Veri.png" alt="Veri Silicon" />
-                                        <img src="/ISB.png" alt="ISB" />
                                     </div>
                                     <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--gold-row">
+                                        <img src="/Veri.png" alt="Veri Silicon" />
+                                        <img src="/ISB.png" alt="ISB" />
                                         <img src="/Nexon.png" alt="Nexon" />
-                                        <img src="/FJ.png" alt="Fujinet" />
-                                        <img src="/GL.png" alt="Gameloft" />
-                                        <img src="/BV.png" alt="BV" />
                                     </div>
+                                </div>
+                            )}
+
+                            {tier.content === "silver" && (
+                                <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--silver">
+                                    <img src="/GL.png" alt="Gameloft" />
+                                </div>
+                            )}
+
+                            {tier.content === "bronze" && (
+                                <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--bronze">
+                                    <img src="/FJ.png" alt="Fujinet" />
+                                    <img src="/BV.png" alt="BV" />
                                 </div>
                             )}
 

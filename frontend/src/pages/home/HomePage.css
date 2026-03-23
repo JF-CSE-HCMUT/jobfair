@@ -7,11 +7,6 @@
     padding-top: var(--navbar-height);
 }
 
-.home-page__main>section[id] {
-    min-height: calc(100svh - var(--navbar-height));
-    scroll-margin-top: var(--navbar-height);
-}
-
 .home-page__map-placeholder {
     display: grid;
     place-items: center;

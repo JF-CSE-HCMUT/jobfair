@@ -21,7 +21,10 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--navbar-height);
+}
+
+:where(section[id], footer[id]) {
+  scroll-margin-top: calc(var(--navbar-height) + 8px);
 }
 
 body {

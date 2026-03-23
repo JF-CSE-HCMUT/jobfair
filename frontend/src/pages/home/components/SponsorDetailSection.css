@@ -1,5 +1,8 @@
 .home-sponsor-detail {
-    padding: 1.3rem 0;
+    padding: 1.35rem 0;
+    min-height: calc(100dvh - var(--navbar-height));
+    display: grid;
+    align-items: start;
 }
 
 .home-sponsor-detail__container {
@@ -7,7 +10,6 @@
     margin: 0 auto;
     display: grid;
     align-content: start;
-    min-height: calc(100svh - var(--navbar-height));
 }
 
 .home-sponsor-detail__header {
@@ -47,27 +49,35 @@
 }
 
 .home-sponsor-detail__cards {
-    margin-top: 0.9rem;
+    margin-top: 1.15rem;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 1.15rem;
 }
 
 .home-sponsor-detail__card {
     display: grid;
-    align-content: start;
-    min-height: 290px;
+    grid-template-rows: auto 1fr auto;
+    gap: 1.05rem;
+    min-height: 286px;
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    padding: 1.2rem;
+    padding: 1.1rem;
     background: #ffffff;
     box-shadow: 0 14px 24px -22px rgba(35, 62, 99, 0.8);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.home-sponsor-detail__card:hover {
+    transform: translateY(-4px);
+    border-color: #c4d2e7;
+    box-shadow: 0 20px 34px -22px rgba(30, 56, 91, 0.55);
 }
 
 .home-sponsor-detail__logo-wrap {
     display: grid;
     place-items: center;
-    min-height: 152px;
+    min-height: 124px;
     border-radius: 12px;
     background: #f7f9fd;
 }
@@ -79,22 +89,39 @@
 }
 
 .home-sponsor-detail__card p {
-    margin: 0.75rem 0 0;
+    margin: 0;
     color: var(--text-muted);
-    line-height: 1.5;
-    font-size: 0.95rem;
+    line-height: 1.45;
+    font-size: 0.92rem;
+}
+
+.home-sponsor-detail__visit-link {
+    justify-self: center;
+    align-self: end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 0.46rem 0.9rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #ffffff;
+    background: var(--accent-orange);
+    transition: background-color 0.18s ease;
+}
+
+.home-sponsor-detail__visit-link:hover {
+    background: var(--accent-orange-hover);
 }
 
 @media (max-width: 960px) {
-    .home-sponsor-detail__container {
-        min-height: auto;
-    }
-
     .home-sponsor-detail__cards {
         grid-template-columns: 1fr;
     }
 
     .home-sponsor-detail__card {
-        min-height: 240px;
+        min-height: 248px;
     }
 }

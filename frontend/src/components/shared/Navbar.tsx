@@ -11,7 +11,7 @@ type NavItem = {
 const homeItems: NavItem[] = [
     { label: "Trang chủ", href: "/#overview" },
     { label: "Tài trợ", href: "/#sponsors" },
-    { label: "Đồng hành", href: "/#partner-stories" },
+    { label: "Đồng hành", href: "/#partners" },
     { label: "Hành trình", href: "/#milestones" },
     { label: "Bộ nhận diện", href: "/brand-assets" },
     { label: "Bản đồ", href: "/#venue-map" },
@@ -48,9 +48,9 @@ const Navbar = () => {
 
                 <nav className="shared-navbar__desktop" aria-label="Điều hướng chính">
                     {visibleItems.map((item) => (
-                        <a key={item.label} href={item.href} className="shared-navbar__link">
+                        <Link key={item.label} to={item.href} className="shared-navbar__link" onClick={closeMenu}>
                             {item.label}
-                        </a>
+                        </Link>
                     ))}
                 </nav>
 
@@ -72,9 +72,9 @@ const Navbar = () => {
             {isMenuOpen && (
                 <nav className="shared-navbar__mobile" aria-label="Điều hướng mobile">
                     {visibleItems.map((item) => (
-                        <a key={item.label} href={item.href} className="shared-navbar__mobile-link" onClick={closeMenu}>
+                        <Link key={item.label} to={item.href} className="shared-navbar__mobile-link" onClick={closeMenu}>
                             {item.label}
-                        </a>
+                        </Link>
                     ))}
                     <Link to={registerItem.href} className="shared-navbar__mobile-register" onClick={closeMenu}>
                         {registerItem.label}
