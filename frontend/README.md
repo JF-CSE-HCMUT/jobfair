@@ -1,29 +1,42 @@
 # CSE Job Fair 2026 Frontend
 
-React + TypeScript + Vite frontend for check-in and lucky draw experiences.
-
-Version: `0.0.0`.
+React + TypeScript + Vite frontend for CSE Job Fair pages.
 
 ## Commands
 
+- `npm install`
 - `npm run lint`
 - `npm run build`
+- `npm run dev`
 
 ## Environment
 
 - Copy `.env.example` to `.env`.
-- Set `VITE_API_BASE_URL` when API is not `http://localhost:4000/api`.
+- Configure `VITE_API_BASE_URL` if backend is not `http://localhost:4000/api`.
 
-## Features
+## Routes
 
-- Check-in submits to `POST /api/checkins`.
-- Counter syncs from `GET /api/checkins/summary`.
-- Lucky draw candidates load from `GET /api/students`.
+- `/` Home page
+- `/register` Register split page
 
-## Main Folders
+## Structure
 
-- `src/app/checkin`
-- `src/app/checkin/components`
-- `src/app/luckydraw`
-- `src/app/services`
-- `src/assets`
+- `src/app/App.tsx` route setup
+- `src/pages/home` Home page and page-owned sections
+- `src/pages/register` Register page
+- `src/components/shared` shared shell components (Navbar, Footer)
+- `src/app/services` API client functions
+- `src/assets` critical above-the-fold images imported by pages
+- `public` non-critical static assets (logos, map model)
+
+## Styling
+
+- Tailwind has been removed.
+- Global base styles and tokens are in `src/index.css`.
+- Each page/component keeps colocated CSS with prefixed selectors.
+
+## Naming Rules
+
+- Components: PascalCase
+- Variables/functions: camelCase
+- Asset filenames: kebab-case

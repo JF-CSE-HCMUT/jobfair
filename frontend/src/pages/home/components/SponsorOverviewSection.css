@@ -1,0 +1,111 @@
+.home-sponsor-overview {
+    padding: 1.2rem 0 1rem;
+}
+
+.home-sponsor-overview__container {
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+}
+
+.home-sponsor-overview__intro {
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.2rem 1.4rem;
+    border-radius: 18px;
+    background: #f2f6fb;
+}
+
+.home-sponsor-overview__title {
+    margin: 0;
+    color: #173760;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.home-sponsor-overview__desc {
+    margin: 0.6rem 0 0;
+    color: #29466c;
+    line-height: 1.45;
+}
+
+.home-sponsor-overview__hero-logo {
+    width: min(100%, 360px);
+    justify-self: center;
+    object-fit: contain;
+}
+
+.home-sponsor-overview__tiers {
+    margin-top: 1rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.home-sponsor-overview__tier-name {
+    margin: 0;
+    text-align: center;
+    color: #9f7520;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.home-sponsor-overview__tier-logos {
+    margin-top: 1rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.home-sponsor-overview__tier-logos img {
+    max-height: 70px;
+    justify-self: center;
+    width: auto;
+    object-fit: contain;
+}
+
+.home-sponsor-overview__tier-logos--diamond {
+    grid-template-columns: repeat(3, minmax(120px, 190px));
+}
+
+.home-sponsor-overview__tier-rows {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.85rem;
+}
+
+.home-sponsor-overview__tier-empty {
+    margin-top: 1rem;
+    text-align: center;
+    color: #60789a;
+    font-style: italic;
+    border: 1px dashed #c8d5e7;
+    border-radius: 12px;
+    padding: 0.7rem 0.8rem;
+    background: #f7faff;
+}
+
+.home-sponsor-overview__tier-logos--gold-row {
+    margin-top: 0;
+    grid-template-columns: repeat(4, minmax(110px, 1fr));
+}
+
+.home-sponsor-overview__tier-logos--gold-row img {
+    max-height: 54px;
+}
+
+@media (max-width: 900px) {
+    .home-sponsor-overview__intro {
+        grid-template-columns: 1fr;
+    }
+
+    .home-sponsor-overview__tier-logos--diamond {
+        grid-template-columns: repeat(2, minmax(110px, 1fr));
+    }
+
+    .home-sponsor-overview__tier-logos--gold-row {
+        grid-template-columns: repeat(2, minmax(110px, 1fr));
+    }
+}

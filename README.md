@@ -21,13 +21,21 @@ Current version for both apps is `0.0.0`.
    - `cd frontend`
    - `copy .env.example .env`
    - `npm install`
-   - `npm run build`
+   - `npm run dev`
 
 ## Validation Commands
 
 - `cd frontend && npm run lint`
 - `cd frontend && npm run build`
 - `cd backend && npm run build`
+
+## Frontend Notes
+
+- Main routes: `/` and `/register`
+- Frontend is organized by page domain under `frontend/src/pages`
+- Shared shell components are in `frontend/src/components/shared`
+- Tailwind is removed; styling is plain CSS with colocated files
+- Critical above-the-fold images are imported from `frontend/src/assets`
 
 ## API Routes
 

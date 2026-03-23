@@ -1,0 +1,39 @@
+.home-page {
+    min-height: 100vh;
+    background: var(--surface-base);
+}
+
+.home-page__main {
+    padding-top: var(--navbar-height);
+}
+
+.home-page__main>section[id] {
+    min-height: calc(100vh - var(--navbar-height));
+    scroll-margin-top: calc(var(--navbar-height) + 10px);
+}
+
+.home-page__map-placeholder {
+    display: grid;
+    place-items: center;
+    padding: 1.2rem;
+    background: linear-gradient(180deg, #edf3fa, #e6eef7);
+}
+
+.home-page__map-placeholder-inner {
+    width: min(1200px, 92vw);
+    padding: 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    background: #ffffff;
+}
+
+.home-page__map-placeholder h2 {
+    margin: 0;
+    color: var(--text-main);
+    font-size: clamp(1.25rem, 2.8vw, 2rem);
+}
+
+.home-page__map-placeholder p {
+    margin: 0.55rem 0 0;
+    color: var(--text-muted);
+}

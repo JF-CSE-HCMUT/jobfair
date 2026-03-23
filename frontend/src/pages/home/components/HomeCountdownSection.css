@@ -1,0 +1,193 @@
+.home-countdown {
+    position: relative;
+    background: var(--surface-base);
+}
+
+.home-countdown__hero {
+    position: relative;
+    min-height: calc(100vh - var(--navbar-height));
+    display: grid;
+    place-items: center;
+    padding: 1.1rem;
+    overflow: hidden;
+}
+
+.home-countdown__bg-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.home-countdown__bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-countdown__bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(25, 44, 71, 0.35), rgba(31, 77, 132, 0.2));
+}
+
+.home-countdown__content {
+    position: relative;
+    z-index: 1;
+    width: min(90vw, 620px);
+    padding: clamp(1.15rem, 2vw, 2rem);
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(235, 239, 245, 0.52);
+    text-align: center;
+    color: #0f2238;
+    backdrop-filter: blur(5px);
+}
+
+.home-countdown__title {
+    margin: 0.35rem 0 1rem;
+    font-size: clamp(1.6rem, 3.2vw, 2.65rem);
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.home-countdown__brand-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.home-countdown__brand-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.home-countdown__brand-mark {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
+.home-countdown__timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.home-countdown__timer-item {
+    min-width: 80px;
+}
+
+.home-countdown__timer-value {
+    display: grid;
+    place-items: center;
+    min-height: 72px;
+    min-width: 72px;
+    border-radius: 14px;
+    background: rgba(13, 28, 49, 0.88);
+    color: #ffffff;
+    font-size: 2rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+.home-countdown__timer-label {
+    display: block;
+    margin-top: 0.4rem;
+    color: #677a92;
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.home-countdown__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 1.25rem;
+}
+
+.home-countdown__register-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 210px;
+    padding: 0.78rem 1.4rem;
+    border-radius: 12px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+
+.home-countdown__register-btn:hover {
+    transform: translateY(-1px);
+    background: var(--accent-orange-hover);
+}
+
+.home-countdown__register-btn {
+    background: var(--accent-orange);
+    color: #ffffff;
+}
+
+.home-countdown__video-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-countdown__video-section {
+    position: relative;
+    min-height: calc(100vh - var(--navbar-height));
+}
+
+.home-countdown__video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.home-countdown__video-placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    font-weight: 600;
+    background: linear-gradient(135deg, #153055, #1b3e66);
+}
+
+@media (max-width: 640px) {
+    .home-countdown__hero {
+        min-height: calc(100vh - var(--navbar-height));
+        padding: 0.75rem;
+    }
+
+    .home-countdown__content {
+        width: min(92vw, 640px);
+        padding: 1rem;
+    }
+
+    .home-countdown__timer-value {
+        min-height: 62px;
+        min-width: 62px;
+        font-size: 1.8rem;
+    }
+
+    .home-countdown__video-section {
+        min-height: calc(100vh - var(--navbar-height));
+    }
+}

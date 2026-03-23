@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import HomePage from "../pages/home/HomePage";
+import RegisterPage from "../pages/register/RegisterPage";
 
 
 const NotFound = () => (
-  <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: "2rem" }}>
-    <div style={{ textAlign: "center" }}>
+  <main className="app-not-found">
+    <div className="app-not-found__content">
       <h1>404</h1>
       <p>Page not found.</p>
     </div>
@@ -15,6 +16,7 @@ const App = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>
