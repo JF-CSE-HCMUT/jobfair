@@ -110,11 +110,23 @@
     grid-template-columns: repeat(2, minmax(120px, 190px));
 }
 
+.home-sponsor-overview__tier-logos--year-sponsor-row-4 {
+    margin-top: 5;
+    grid-template-columns: repeat(4, minmax(110px, 1fr));
+}
+
+.home-sponsor-overview__tier-logos--year-sponsor-row-3 {
+    margin-top: 5;
+    grid-template-columns: repeat(3, minmax(110px, 1fr));
+}
+
 .home-sponsor-overview__tier-logos--gold-row img,
 .home-sponsor-overview__tier-logos--gold-row-3 img,
 .home-sponsor-overview__tier-logos--gold-row-2 img,
 .home-sponsor-overview__tier-logos--silver-row img,
-.home-sponsor-overview__tier-logos--bronze-row img {
+.home-sponsor-overview__tier-logos--bronze-row img,
+.home-sponsor-overview__tier-logos--year-sponsor-row-4 img,
+.home-sponsor-overview__tier-logos--year-sponsor-row-3 img {
     max-height: 54px;
 }
 
@@ -128,6 +140,14 @@
     }
 
     .home-sponsor-overview__tier-logos--gold-row {
+        grid-template-columns: repeat(2, minmax(110px, 1fr));
+    }
+
+    .home-sponsor-overview__tier-logos--year-sponsor-row-4 {
+        grid-template-columns: repeat(2, minmax(110px, 1fr));
+    }
+
+    .home-sponsor-overview__tier-logos--year-sponsor-row-3 {
         grid-template-columns: repeat(2, minmax(110px, 1fr));
     }
 }

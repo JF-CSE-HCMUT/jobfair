@@ -3,11 +3,11 @@ import "./SponsorOverviewSection.css";
 
 type Tier = {
     name: string;
-    content: "diamond" | "gold" | "silver" | "bronze" | "empty";
+    content: "diamond" | "gold" | "silver" | "bronze" | "year-sponsor";
 };
 
 const tiers: Tier[] = [
-    { name: "Nhà tài trợ năm", content: "empty" },
+    { name: "Nhà tài trợ năm", content: "year-sponsor" },
     { name: "Kim cương", content: "diamond" },
     { name: "Vàng", content: "gold" },
     { name: "Bạc", content: "silver" },
@@ -83,7 +83,27 @@ const SponsorOverviewSection = () => {
                                 </div>
                             )}
 
-                            {tier.content === "empty" && <div className="home-sponsor-overview__tier-empty">Đang cập nhật nhà tài trợ</div>}
+                            {tier.content === "year-sponsor" && (
+                                <div className="home-sponsor-overview__tier-rows">
+                                    <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--year-sponsor-row-4">
+                                        <img src="/NVIDIA2.png" alt="NVIDIA" />
+                                        <img src="/VNG.png" alt="VNG" />
+                                        <img src="/KMS.png" alt="KMS" />
+                                        <img src="/FS.png" alt="FPT Software" />
+                                    </div>
+                                    <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--year-sponsor-row-4">
+                                        <img src="/SACOM.png" alt="Sacombank" />
+                                        <img src="/Veri.png" alt="Veri Silicon" />
+                                        <img src="/ISB.png" alt="ISB" />
+                                        <img src="/Nexon.png" alt="Nexon" />
+                                    </div>
+                                    <div className="home-sponsor-overview__tier-logos home-sponsor-overview__tier-logos--year-sponsor-row-3">
+                                        <img src="/GL.png" alt="Gameloft" />
+                                        <img src="/FJ.png" alt="Fujinet" />
+                                        <img src="/BV.png" alt="BV" />
+                                    </div>
+                                </div>
+                            )}
                         </motion.div>
                     ))}
                 </div>
