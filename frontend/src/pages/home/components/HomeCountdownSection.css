@@ -49,11 +49,12 @@
 }
 
 .home-countdown__title {
-    margin: 0.35rem 0 1rem;
+    margin: 0.65rem 0;
     font-size: clamp(1.6rem, 3.2vw, 2.65rem);
     font-family: var(--font-display);
     font-weight: 700;
     line-height: 1.2;
+    font-size: 2.5rem;
 }
 
 .home-countdown__title-line {
@@ -68,8 +69,8 @@
 }
 
 .home-countdown__brand-logo {
-    width: 36px;
-    height: 36px;
+    width: 350px;
+    height: auto;
     object-fit: contain;
 }
 
@@ -85,6 +86,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.8rem;
+    font-weight: 1000;
 }
 
 .home-countdown__timer-item {
