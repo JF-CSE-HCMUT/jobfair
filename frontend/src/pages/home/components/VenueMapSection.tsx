@@ -103,7 +103,6 @@ const VenueMapSection = ({ modelUrl }: { modelUrl: string }) => {
                             }
                         >
                             <InteractiveModel url={modelUrl} isHovered={isHovered} onFitCamera={onFitCamera} />
-                            <ContactShadows position={[0, -1.5, 0]} opacity={0.35} scale={8} blur={2.5} />
                             <Environment preset="city" />
                         </Suspense>
 
