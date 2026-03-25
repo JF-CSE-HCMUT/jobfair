@@ -22,7 +22,13 @@
 .home-milestones__intro {
     margin: 0.7rem 0 0;
     color: var(--text-muted);
-    max-width: 66ch;
+    max-width: min(48ch, 78%);
+}
+
+@media (max-width: 900px) {
+    .home-milestones__intro {
+        max-width: 100%;
+    }
 }
 
 .home-milestones__grid {

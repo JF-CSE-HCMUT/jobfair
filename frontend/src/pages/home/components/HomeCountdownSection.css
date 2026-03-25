@@ -80,7 +80,7 @@
     object-fit: contain;
 }
 
-.home-countdown__timer {
+.home-countdown__clock {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,11 +89,11 @@
     font-weight: 1000;
 }
 
-.home-countdown__timer-item {
+.home-countdown__clock-item {
     min-width: 80px;
 }
 
-.home-countdown__timer-value {
+.home-countdown__clock-value {
     display: grid;
     place-items: center;
     min-height: 72px;
@@ -106,7 +106,7 @@
     font-weight: 700;
 }
 
-.home-countdown__timer-label {
+.home-countdown__clock-label {
     display: block;
     margin-top: 0.4rem;
     color: #1f3652;
@@ -201,7 +201,7 @@
         padding: 1rem;
     }
 
-    .home-countdown__timer-value {
+    .home-countdown__clock-value {
         min-height: 62px;
         min-width: 62px;
         font-size: 1.8rem;

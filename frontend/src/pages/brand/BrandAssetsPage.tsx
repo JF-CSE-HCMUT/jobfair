@@ -28,23 +28,27 @@ const BrandAssetsPage = () => {
         <div className="brand-assets-page">
             <Navbar />
             <main className="brand-assets-page__main">
-                <section className="brand-assets-page__hero">
-                    <h1>Bộ nhận diện thương hiệu</h1>
-                    <p>Tải trực tiếp các hình ảnh được sử dụng trong bộ nhận diện CSE JOB FAIR 2026.</p>
-                </section>
+                <section className="brand-assets-page__section">
+                    <div className="brand-assets-page__container">
+                        <section className="brand-assets-page__hero">
+                            <h1>Bộ nhận diện thương hiệu</h1>
+                            <p>Tải trực tiếp các hình ảnh được sử dụng trong bộ nhận diện CSE JOB FAIR 2026.</p>
+                        </section>
 
-                <section className="brand-assets-page__grid" aria-label="Danh sách ảnh bộ nhận diện">
-                    {brandAssets.map((asset, index) => (
-                        <article key={asset.fileName} className="brand-assets-page__item">
-                            <img src={asset.src} alt={asset.alt} className="brand-assets-page__image" />
-                            <div className="brand-assets-page__actions">
-                                <span className="brand-assets-page__name">Ảnh {index + 1}</span>
-                                <a href={asset.src} download={asset.fileName} className="brand-assets-page__download-link">
-                                    Tải ảnh
-                                </a>
-                            </div>
-                        </article>
-                    ))}
+                        <section className="brand-assets-page__grid" aria-label="Danh sách ảnh bộ nhận diện">
+                            {brandAssets.map((asset, index) => (
+                                <article key={asset.fileName} className="brand-assets-page__item">
+                                    <img src={asset.src} alt={asset.alt} className="brand-assets-page__image" />
+                                    <div className="brand-assets-page__actions">
+                                        <span className="brand-assets-page__name">Ảnh {index + 1}</span>
+                                        <a href={asset.src} download={asset.fileName} className="brand-assets-page__download-link">
+                                            Tải ảnh
+                                        </a>
+                                    </div>
+                                </article>
+                            ))}
+                        </section>
+                    </div>
                 </section>
             </main>
             <Footer />

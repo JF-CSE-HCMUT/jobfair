@@ -14,7 +14,7 @@ const tiers: Tier[] = [
         logos: [
             { src: withBase("VNG.png"), alt: "VNG" },
             { src: withBase("KMS.png"), alt: "KMS" },
-            { src: withBase("NVIDIA2.png"), alt: "NVIDIA" },
+            { src: withBase("NVIDIA.png"), alt: "NVIDIA" },
         ],
     },
     {
@@ -57,7 +57,7 @@ const SponsorOverviewSection = () => {
                             Hãy cùng khám phá và tận dụng cơ hội để định hướng tương lai nghề nghiệp của bạn tại CSE Job Fair 2026!
                         </p>
                     </div>
-                    <img src={withBase("CSExJF.png")} alt="CSE Job Fair" className="home-sponsor-overview__hero-logo" />
+                    <img src={withBase("logo.png")} alt="CSE Job Fair" className="home-sponsor-overview__hero-logo" />
                 </motion.div>
 
                 <div className="home-sponsor-overview__tiers">

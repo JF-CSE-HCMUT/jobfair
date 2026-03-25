@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import type { CSSProperties } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { partners, type Partner } from "../data/partnersData";
 import "./SponsorDetailSection.css";
@@ -20,7 +21,7 @@ const toPreviewText = (input: string, maxLen = 110) => {
 
 const getPerPage = () => {
     if (typeof window === "undefined") {
-        return 6;
+        return 8;
     }
 
     if (window.innerWidth < 680) {
@@ -31,7 +32,19 @@ const getPerPage = () => {
         return 4;
     }
 
-    return 6;
+    return 8;
+};
+
+const getCardsPerRow = (perPage: number) => {
+    if (perPage >= 8) {
+        return 4;
+    }
+
+    if (perPage >= 4) {
+        return 2;
+    }
+
+    return 1;
 };
 
 const SponsorDetailSection = () => {
@@ -50,6 +63,8 @@ const SponsorDetailSection = () => {
     const visiblePartners = useMemo(() => partners.filter((partner) => partner.logoFile.trim().length > 0), []);
     const pageCount = Math.max(1, Math.ceil(visiblePartners.length / perPage));
     const normalizedPage = page % pageCount;
+    const cardsPerRow = getCardsPerRow(perPage);
+    const cardsStyle = { "--cards-per-page": cardsPerRow } as CSSProperties;
     const pageItems = useMemo(() => {
         const start = normalizedPage * perPage;
         return visiblePartners.slice(start, start + perPage);
@@ -103,11 +118,11 @@ const SponsorDetailSection = () => {
     }, [selectedPartner]);
 
     return (
-        <section id="partners" className="home-sponsor-detail">
-            <div className="home-sponsor-detail__container">
-                <div className="home-sponsor-detail__header">
+        <section id="partners" className="home-partners">
+            <div className="home-partners__container">
+                <div className="home-partners__header">
                     <h2>Các doanh nghiệp đồng hành cùng CSE Job Fair 2026</h2>
-                    <div className="home-sponsor-detail__pager" aria-label="Điều hướng đối tác đồng hành">
+                    <div className="home-partners__pager" aria-label="Điều hướng đối tác đồng hành">
                         <button
                             type="button"
                             onClick={() => {
@@ -134,7 +149,8 @@ const SponsorDetailSection = () => {
 
                 <motion.div
                     key={`${normalizedPage}-${perPage}`}
-                    className="home-sponsor-detail__cards"
+                    className="home-partners__cards"
+                    style={cardsStyle}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.24, ease: [0.2, 0.8, 0.2, 1] }}
@@ -153,18 +169,18 @@ const SponsorDetailSection = () => {
                     {pageItems.map((partner, index) => (
                         <motion.article
                             key={partner.id}
-                            className="home-sponsor-detail__card"
+                            className="home-partners__card"
                             initial={{ opacity: 0, y: 18 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.05 }}
                         >
-                            <div className="home-sponsor-detail__logo-wrap">
+                            <div className="home-partners__logo-wrap">
                                 <img src={withBase(partner.logoFile)} alt={partner.name} loading="lazy" />
                             </div>
-                            <h3 className="home-sponsor-detail__company-name">{partner.name}</h3>
+                            <h3 className="home-partners__company-name">{partner.name}</h3>
                             <p>{toPreviewText(partner.description, 130)}</p>
-                            <ul className="home-sponsor-detail__news-preview">
+                            <ul className="home-partners__news-preview">
                                 {partner.recruitmentNews.slice(0, 2).map((item) => (
                                     <li key={`${partner.id}-${item}`}>{toPreviewText(item, 92)}</li>
                                 ))}
@@ -173,14 +189,14 @@ const SponsorDetailSection = () => {
                                 href={partner.websiteUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="home-sponsor-detail__visit-link"
+                                className="home-partners__visit-link"
                                 aria-label={`Truy cập trang chủ ${partner.name}`}
                             >
                                 Trang chủ
                             </a>
                             <button
                                 type="button"
-                                className="home-sponsor-detail__detail-btn"
+                                className="home-partners__detail-btn"
                                 onClick={() => setSelectedPartner(partner)}
                             >
                                 Xem chi tiết tuyển dụng
@@ -190,7 +206,7 @@ const SponsorDetailSection = () => {
                 </motion.div>
 
                 {pageCount > 1 && (
-                    <div className="home-sponsor-detail__dots" role="tablist" aria-label="Trang đối tác đồng hành">
+                    <div className="home-partners__dots" role="tablist" aria-label="Trang đối tác đồng hành">
                         {Array.from({ length: pageCount }).map((_, dotIndex) => (
                             <button
                                 key={`dot-${dotIndex}`}
@@ -209,9 +225,9 @@ const SponsorDetailSection = () => {
             </div>
 
             {selectedPartner && (
-                <div className="home-sponsor-detail__modal-backdrop" role="presentation" onClick={() => setSelectedPartner(null)}>
+                <div className="home-partners__modal-backdrop" role="presentation" onClick={() => setSelectedPartner(null)}>
                     <div
-                        className="home-sponsor-detail__modal"
+                        className="home-partners__modal"
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="partner-detail-title"
@@ -219,14 +235,14 @@ const SponsorDetailSection = () => {
                     >
                         <button
                             type="button"
-                            className="home-sponsor-detail__modal-close"
+                            className="home-partners__modal-close"
                             aria-label="Đóng chi tiết"
                             onClick={() => setSelectedPartner(null)}
                         >
                             <X size={18} />
                         </button>
 
-                        <div className="home-sponsor-detail__modal-head">
+                        <div className="home-partners__modal-head">
                             <img src={withBase(selectedPartner.logoFile)} alt={selectedPartner.name} loading="lazy" />
                             <div>
                                 <h3 id="partner-detail-title">{selectedPartner.name}</h3>
@@ -236,10 +252,10 @@ const SponsorDetailSection = () => {
                             </div>
                         </div>
 
-                        <p className="home-sponsor-detail__modal-desc">{selectedPartner.description}</p>
+                        <p className="home-partners__modal-desc">{selectedPartner.description}</p>
 
-                        <div className="home-sponsor-detail__modal-block">
-                            <p className="home-sponsor-detail__modal-label">Tin tuyển dụng</p>
+                        <div className="home-partners__modal-block">
+                            <p className="home-partners__modal-label">Tin tuyển dụng</p>
                             <ul>
                                 {selectedPartner.recruitmentNews.map((item) => (
                                     <li key={`${selectedPartner.id}-${item}`}>{toPreviewText(item, 280)}</li>
@@ -248,8 +264,8 @@ const SponsorDetailSection = () => {
                         </div>
 
                         {selectedPartner.documents.length > 0 && (
-                            <div className="home-sponsor-detail__modal-block">
-                                <p className="home-sponsor-detail__modal-label">Tài liệu liên quan</p>
+                            <div className="home-partners__modal-block">
+                                <p className="home-partners__modal-label">Tài liệu liên quan</p>
                                 <ul>
                                     {selectedPartner.documents.map((url) => (
                                         <li key={url}>

@@ -81,7 +81,10 @@
     display: none;
     margin-left: auto;
     border: 0;
-    background: transparent;
+    padding: 0;
+    background: none;
+    appearance: none;
+    box-shadow: none;
     color: var(--text-main);
     cursor: pointer;
 }

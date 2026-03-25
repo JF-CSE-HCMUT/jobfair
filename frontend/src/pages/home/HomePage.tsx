@@ -13,22 +13,37 @@ const MAP_MODEL_CANDIDATES = [
     `${import.meta.env.BASE_URL}Map`,
     "https://media.githubusercontent.com/media/PenguAKAuseless/public-web-JF/main/frontend/public/Map.glb",
 ];
+const MAP_RETRY_DELAY_MS = 30_000;
+const MAP_MAX_RETRIES = 2;
 
 const HomePage = () => {
     const [shouldRenderMap, setShouldRenderMap] = useState(false);
     const [mapModelUrl, setMapModelUrl] = useState(MAP_MODEL_CANDIDATES[0]);
     const [isMapModelResolved, setIsMapModelResolved] = useState(false);
+    const [mapResolveStatus, setMapResolveStatus] = useState<"idle" | "checking" | "ready" | "failed">("idle");
+    const [mapRetryCount, setMapRetryCount] = useState(0);
     const mapTriggerRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
-        let cancelled = false;
+        if (!shouldRenderMap) {
+            return;
+        }
 
-        const resolveMapUrl = async () => {
+        let cancelled = false;
+        let retryTimer: number | undefined;
+
+        const resolveMapUrl = async (attempt = 0) => {
+            if (!cancelled) {
+                setMapResolveStatus("checking");
+                setMapRetryCount(attempt);
+            }
+
             for (const candidate of MAP_MODEL_CANDIDATES) {
                 try {
                     const response = await fetch(candidate, { method: "HEAD" });
                     if (!cancelled && (response.ok || response.status === 405)) {
                         setMapModelUrl(candidate);
+                        setMapResolveStatus("ready");
                         setIsMapModelResolved(true);
                         return;
                     }
@@ -38,6 +53,14 @@ const HomePage = () => {
             }
 
             if (!cancelled) {
+                if (attempt < MAP_MAX_RETRIES) {
+                    retryTimer = window.setTimeout(() => {
+                        void resolveMapUrl(attempt + 1);
+                    }, MAP_RETRY_DELAY_MS);
+                    return;
+                }
+
+                setMapResolveStatus("failed");
                 setIsMapModelResolved(true);
             }
         };
@@ -46,8 +69,11 @@ const HomePage = () => {
 
         return () => {
             cancelled = true;
+            if (retryTimer) {
+                window.clearTimeout(retryTimer);
+            }
         };
-    }, []);
+    }, [shouldRenderMap]);
 
     useEffect(() => {
         if (shouldRenderMap || !mapTriggerRef.current) {
@@ -88,13 +114,21 @@ const HomePage = () => {
                             </section>
                         }
                     >
-                        {isMapModelResolved ? (
+                        {isMapModelResolved && mapResolveStatus === "ready" ? (
                             <VenueMapSection modelUrl={mapModelUrl} />
                         ) : (
                             <section id="venue-map" className="home-page__map-placeholder">
                                 <div className="home-page__map-placeholder-inner">
                                     <h2>Bản đồ 3D khu vực sự kiện</h2>
-                                    <p>Đang kiểm tra nguồn mô hình 3D...</p>
+                                    {mapResolveStatus === "failed" ? (
+                                        <p>Bản đồ 3D tải không thành công (kiểm tra đường truyền).</p>
+                                    ) : (
+                                        <p>
+                                            Đang kiểm tra nguồn mô hình 3D
+                                            {mapRetryCount > 0 ? ` (lần thử ${mapRetryCount + 1}/${MAP_MAX_RETRIES + 1})` : ""}
+                                            ...
+                                        </p>
+                                    )}
                                 </div>
                             </section>
                         )}
