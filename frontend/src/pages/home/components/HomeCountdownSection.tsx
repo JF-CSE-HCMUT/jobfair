@@ -132,8 +132,8 @@ const HomeCountdownSection = () => {
                         <iframe
                             className="home-countdown__video"
                             src={HOME_VIDEO_EMBED_URL}
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            title="CSE Job Fair 2026 Intro Video"
+                            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                             allowFullScreen>
                         </iframe>
                     ) : (

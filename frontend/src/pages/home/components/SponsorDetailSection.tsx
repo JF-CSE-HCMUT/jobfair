@@ -25,7 +25,7 @@ const getPerPage = () => {
     }
 
     if (window.innerWidth < 680) {
-        return 1;
+        return 2;
     }
 
     if (window.innerWidth < 1080) {
