@@ -17,6 +17,9 @@ const InteractiveModel = ({ url, isHovered, onFitCamera }: InteractiveModelProps
     const { camera } = useThree();
     const targetY = useRef(0);
     const targetZ = useRef(0);
+    const hoverBlend = useRef(0);
+    const pointerY = useRef(0);
+    const pointerZ = useRef(0);
 
     useEffect(() => {
         if (!groupRef.current || !(camera instanceof THREE.PerspectiveCamera)) {
@@ -32,9 +35,11 @@ const InteractiveModel = ({ url, isHovered, onFitCamera }: InteractiveModelProps
             return;
         }
 
-        const forwardDistance = Math.max(size.z * 0.95, sphere.radius * 1.35);
-        const eyeY = box.min.y + size.y * 0.28;
-        const targetY = box.min.y + size.y * 0.18;
+        const fov = THREE.MathUtils.degToRad(camera.fov);
+        const fitDistance = sphere.radius / Math.tan(fov / 2);
+        const forwardDistance = Math.max(size.z * 0.95, fitDistance * 1.05);
+        const eyeY = center.y;
+        const targetY = center.y - 2;
 
         camera.position.set(center.x, eyeY, center.z + forwardDistance);
         camera.lookAt(center.x, targetY, center.z);
@@ -45,22 +50,28 @@ const InteractiveModel = ({ url, isHovered, onFitCamera }: InteractiveModelProps
         });
     }, [camera, onFitCamera, scene]);
 
-    useFrame((state) => {
+    useFrame((state, delta) => {
         if (!groupRef.current) {
             return;
         }
 
-        if (isHovered) {
-            targetY.current = THREE.MathUtils.clamp(state.pointer.x * 0.6, -0.35, 0.35);
-            targetZ.current = THREE.MathUtils.clamp(-state.pointer.y * 0.2, -0.2, 0.2);
-        } else {
-            targetY.current = 0;
-            targetZ.current = 0;
-        }
+        hoverBlend.current = THREE.MathUtils.damp(hoverBlend.current, isHovered ? 1 : 0, 7, delta);
 
-        groupRef.current.rotation.x = THREE.MathUtils.degToRad(6);
-        groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetY.current, 0.09);
-        groupRef.current.rotation.z = THREE.MathUtils.lerp(groupRef.current.rotation.z, targetZ.current, 0.09);
+        const nextPointerY = isHovered ? THREE.MathUtils.clamp(state.pointer.x * 0.16, -0.16, 0.16) : 0;
+        const nextPointerZ = isHovered ? THREE.MathUtils.clamp(-state.pointer.y * 0.16, -0.16, 0.16) : 0;
+
+        pointerY.current = THREE.MathUtils.damp(pointerY.current, nextPointerY, 9, delta);
+        pointerZ.current = THREE.MathUtils.damp(pointerZ.current, nextPointerZ, 9, delta);
+
+        const desiredY = pointerY.current * hoverBlend.current;
+        const desiredZ = pointerZ.current * hoverBlend.current;
+
+        targetY.current = THREE.MathUtils.damp(targetY.current, desiredY, 11, delta);
+        targetZ.current = THREE.MathUtils.damp(targetZ.current, desiredZ, 11, delta);
+
+        groupRef.current.rotation.x = THREE.MathUtils.degToRad(45);
+        groupRef.current.rotation.y = THREE.MathUtils.damp(groupRef.current.rotation.y, targetY.current, 12, delta);
+        groupRef.current.rotation.z = THREE.MathUtils.damp(groupRef.current.rotation.z, targetZ.current, 12, delta);
     });
 
     return (
@@ -117,8 +128,8 @@ const VenueMapSection = ({ modelUrl }: { modelUrl: string }) => {
                             ref={controlsRef}
                             enablePan={false}
                             minPolarAngle={THREE.MathUtils.degToRad(80)}
-                            maxPolarAngle={THREE.MathUtils.degToRad(98)}
-                            minDistance={1.4}
+                            maxPolarAngle={THREE.MathUtils.degToRad(85)}
+                            minDistance={1.5}
                             maxDistance={22}
                             makeDefault
                         />

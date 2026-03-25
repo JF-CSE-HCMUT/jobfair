@@ -23,7 +23,7 @@ const tiers: Tier[] = [
             { src: withBase("FS.png"), alt: "FPT Software" },
             { src: withBase("SACOM.png"), alt: "Sacombank" },
             { src: withBase("Veri.png"), alt: "Veri Silicon" },
-            { src: withBase("ISB.png"), alt: "ISB" },
+            { src: withBase("IVC.png"), alt: "IVC" },
             { src: withBase("Nexon.png"), alt: "Nexon" },
         ],
     },

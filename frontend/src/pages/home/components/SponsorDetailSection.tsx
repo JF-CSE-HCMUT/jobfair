@@ -29,7 +29,7 @@ const getCardsPerRow = () => {
     }
 
     if (window.innerWidth < 680) {
-        return 1;
+        return 2;
     }
 
     const estimatedContainerWidth = window.innerWidth * PARTNER_GRID_CONTAINER_RATIO;
