@@ -9,6 +9,10 @@ const withBase = (assetPath: string) => `${import.meta.env.BASE_URL}${assetPath}
 
 const AUTO_SCROLL_MS = 5000;
 const INTERACTION_SCROLL_MS = 15000;
+const PARTNER_CARD_MIN_WIDTH = 230;
+const PARTNER_GRID_GAP = 18.4;
+const PARTNER_GRID_CONTAINER_RATIO = 0.92;
+const MAX_CARDS_PER_ROW = 5;
 
 const toPreviewText = (input: string, maxLen = 110) => {
     const compact = input.replace(/\s+/g, " ").trim();
@@ -19,38 +23,24 @@ const toPreviewText = (input: string, maxLen = 110) => {
     return `${compact.slice(0, maxLen - 1).trimEnd()}…`;
 };
 
-const getPerPage = () => {
+const getCardsPerRow = () => {
     if (typeof window === "undefined") {
-        return 8;
+        return 4;
     }
 
     if (window.innerWidth < 680) {
         return 2;
     }
 
-    if (window.innerWidth < 1080) {
-        return 4;
-    }
-
-    return 8;
-};
-
-const getCardsPerRow = (perPage: number) => {
-    if (perPage >= 8) {
-        return 4;
-    }
-
-    if (perPage >= 4) {
-        return 2;
-    }
-
-    return 1;
+    const estimatedContainerWidth = window.innerWidth * PARTNER_GRID_CONTAINER_RATIO;
+    const rowCapacity = Math.floor((estimatedContainerWidth + PARTNER_GRID_GAP) / (PARTNER_CARD_MIN_WIDTH + PARTNER_GRID_GAP));
+    return Math.max(1, Math.min(MAX_CARDS_PER_ROW, rowCapacity));
 };
 
 const SponsorDetailSection = () => {
     const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
     const [page, setPage] = useState(0);
-    const [perPage, setPerPage] = useState(getPerPage);
+    const [cardsPerRow, setCardsPerRow] = useState(getCardsPerRow);
     const [isCarouselPaused, setIsCarouselPaused] = useState(false);
     const [useSlowScroll, setUseSlowScroll] = useState(false);
     const [interactionTick, setInteractionTick] = useState(0);
@@ -61,10 +51,10 @@ const SponsorDetailSection = () => {
     };
 
     const visiblePartners = useMemo(() => partners.filter((partner) => partner.logoFile.trim().length > 0), []);
+    const perPage = cardsPerRow * 2;
     const pageCount = Math.max(1, Math.ceil(visiblePartners.length / perPage));
     const normalizedPage = page % pageCount;
-    const cardsPerRow = getCardsPerRow(perPage);
-    const cardsStyle = { "--cards-per-page": cardsPerRow } as CSSProperties;
+    const cardsStyle = { "--cards-per-row": cardsPerRow } as CSSProperties;
     const pageItems = useMemo(() => {
         const start = normalizedPage * perPage;
         return visiblePartners.slice(start, start + perPage);
@@ -72,7 +62,7 @@ const SponsorDetailSection = () => {
 
     useEffect(() => {
         const onResize = () => {
-            setPerPage(getPerPage());
+            setCardsPerRow(getCardsPerRow());
         };
 
         window.addEventListener("resize", onResize);

@@ -22,7 +22,7 @@
 .home-milestones__intro {
     margin: 0.7rem 0 0;
     color: var(--text-muted);
-    max-width: min(48ch, 78%);
+    max-width: none;
 }
 
 @media (max-width: 900px) {
@@ -35,13 +35,15 @@
     margin-top: 1.05rem;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
     gap: 1.1rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .home-milestones__card {
     display: flex;
     flex-direction: column;
+    height: 100%;
     border-radius: 16px;
     border: 1px solid var(--border-color);
     background: #ffffff;

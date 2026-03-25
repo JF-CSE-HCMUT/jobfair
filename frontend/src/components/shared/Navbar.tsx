@@ -9,7 +9,7 @@ type NavItem = {
 };
 
 const homeItems: NavItem[] = [
-    { label: "Trang chủ", href: "/#overview" },
+    { label: "Trang chủ", href: "/" },
     { label: "Tài trợ", href: "/#sponsors" },
     { label: "Đồng hành", href: "/#partners" },
     { label: "Hành trình", href: "/#milestones" },

@@ -64,7 +64,7 @@
 .home-partners__cards {
     margin-top: 0.85rem;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--cards-per-row, 4), minmax(230px, 1fr));
     gap: 1.15rem;
     align-items: stretch;
     min-height: clamp(560px, calc(100dvh - var(--navbar-height) - 180px), 860px);
