@@ -30,8 +30,8 @@ const registerOptions: RegisterOption[] = [
     },
     {
         key: "cv",
-        title: "Đăng ký CV Clinic",
-        description: "Đăng ký chương trình CV Clinic 2026",
+        title: "CV Clinic 2026",
+        description: "Tư vấn CV 1 - 1 từ chuyên gia tuyển dụng, phỏng vấn nhanh với những doanh nghiệp hàng đầu",
         formUrl: "https://forms.gle/pCxy3QuDaxD9Wzme8",
         backgroundImage: heroLeft,
     },
@@ -67,7 +67,7 @@ const RegisterPage = () => {
                                             className="register-page__option-btn"
                                             onClick={() => setActiveOption(option.key)}
                                         >
-                                            Mở biểu mẫu
+                                            ĐĂNG KÝ NGAY
                                         </button>
                                     </div>
                                 </article>
@@ -87,7 +87,7 @@ const RegisterPage = () => {
                                     className="register-page__option-btn"
                                     onClick={() => setActiveOption("cv")}
                                 >
-                                    Mở biểu mẫu
+                                    ĐĂNG KÝ NGAY
                                 </button>
                             </div>
                         </article>

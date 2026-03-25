@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import "./Navbar.css";
 
@@ -23,18 +23,8 @@ const registerItem: NavItem = { label: "Đăng ký", href: "/register" };
 
 const Navbar = () => {
     const logoSrc = `${import.meta.env.BASE_URL}logo.png`;
-    const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const currentPath = location.pathname;
-
-    const visibleItems = useMemo(() => {
-        if (currentPath === "/register") {
-            return [{ label: "Trang chủ", href: "/" }, { label: "Liên hệ", href: "/#contact" }];
-        }
-
-        return homeItems;
-    }, [currentPath]);
+    const visibleItems = homeItems;
 
     const closeMenu = () => {
         setIsMenuOpen(false);

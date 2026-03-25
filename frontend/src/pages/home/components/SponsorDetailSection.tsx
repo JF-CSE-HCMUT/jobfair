@@ -6,7 +6,7 @@ import "./SponsorDetailSection.css";
 
 const withBase = (assetPath: string) => `${import.meta.env.BASE_URL}${assetPath}`;
 
-const AUTO_SCROLL_MS = 4500;
+const AUTO_SCROLL_MS = 5000;
 
 const toPreviewText = (input: string, maxLen = 110) => {
     const compact = input.replace(/\s+/g, " ").trim();
@@ -37,6 +37,7 @@ const SponsorDetailSection = () => {
     const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
     const [page, setPage] = useState(0);
     const [perPage, setPerPage] = useState(getPerPage);
+    const [isCarouselPaused, setIsCarouselPaused] = useState(false);
 
     const visiblePartners = useMemo(() => partners.filter((partner) => partner.logoFile.trim().length > 0), []);
     const pageCount = Math.max(1, Math.ceil(visiblePartners.length / perPage));
@@ -56,7 +57,7 @@ const SponsorDetailSection = () => {
     }, []);
 
     useEffect(() => {
-        if (pageCount <= 1 || selectedPartner) {
+        if (pageCount <= 1 || selectedPartner || isCarouselPaused) {
             return;
         }
 
@@ -65,7 +66,7 @@ const SponsorDetailSection = () => {
         }, AUTO_SCROLL_MS);
 
         return () => window.clearInterval(timer);
-    }, [pageCount, selectedPartner]);
+    }, [isCarouselPaused, pageCount, selectedPartner]);
 
     useEffect(() => {
         if (!selectedPartner) {
@@ -111,6 +112,16 @@ const SponsorDetailSection = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.24, ease: [0.2, 0.8, 0.2, 1] }}
+                    onMouseEnter={() => setIsCarouselPaused(true)}
+                    onMouseLeave={() => setIsCarouselPaused(false)}
+                    onFocusCapture={() => setIsCarouselPaused(true)}
+                    onBlurCapture={(event) => {
+                        const nextTarget = event.relatedTarget;
+                        if (nextTarget instanceof Node && event.currentTarget.contains(nextTarget)) {
+                            return;
+                        }
+                        setIsCarouselPaused(false);
+                    }}
                 >
                     {pageItems.map((partner, index) => (
                         <motion.article

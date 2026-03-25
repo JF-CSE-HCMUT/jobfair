@@ -9,10 +9,9 @@ type Seminar = {
     period: string;
     company: string;
     title: string;
-    registrationUrl: string;
     description: string;
     heroImage: string;
-    popupImage: string;
+    subImages: string[];
 };
 
 const seminarVenue = "Phòng 609, Tòa BK.B6, Trường ĐH Bách khoa - ĐHQG-HCM (Cơ sở 2)";
@@ -24,44 +23,40 @@ const seminars: Seminar[] = [
         period: "Sáng 21/03",
         company: "ANDPAD",
         title: "From Fresher to Global Engineer: Career Opportunities at ANDPAD",
-        registrationUrl: "https://bit.ly/Seminar-ANDPAD",
         description:
             "Phiên hội thảo công nghệ và định hướng việc làm dành cho sinh viên, tập trung vào hành trình phát triển nghề nghiệp từ fresher đến kỹ sư toàn cầu.",
         heroImage: "seminar-photo/1/hero.jpg",
-        popupImage: "seminar-photo/1/sub.jpg",
+        subImages: ["seminar-photo/1/sub.jpg", "seminar-photo/1/sub-alt-1.jpg", "seminar-photo/1/sub-alt-2.jpg", "seminar-photo/1/sub-alt-3.jpg"],
     },
     {
         id: 2,
         period: "Chiều 21/03",
-        company: "ISB",
+        company: "IVC",
         title: "Hành trình từ sinh viên đến lập trình viên: Kinh nghiệm, thử thách và bài học thực tế",
-        registrationUrl: "https://bit.ly/Seminar-ISB",
         description:
             "Phiên chia sẻ về kinh nghiệm thực tế trong quá trình chuyển mình từ sinh viên sang lập trình viên chuyên nghiệp.",
         heroImage: "seminar-photo/2/hero.jpg",
-        popupImage: "seminar-photo/2/sub.jpg",
+        subImages: ["seminar-photo/2/sub.jpg", "seminar-photo/2/sub-alt-0.jpg", "seminar-photo/2/sub-alt-1.jpg", "seminar-photo/2/sub-alt-2.jpg"],
     },
     {
         id: 3,
         period: "Sáng 22/03",
         company: "WorldQuant",
         title: "Các cơ hội trong ngành Tài chính Định lượng cùng WorldQuant",
-        registrationUrl: "https://bit.ly/Seminar-WorldQuant",
         description:
             "Phiên giới thiệu các cơ hội học tập và nghề nghiệp trong lĩnh vực tài chính định lượng cùng WorldQuant.",
         heroImage: "seminar-photo/3/hero.jpg",
-        popupImage: "seminar-photo/3/sub.jpg",
+        subImages: ["seminar-photo/3/sub.jpg", "seminar-photo/3/sub-alt-1.jpg", "seminar-photo/3/sub-alt-2.jpg", "seminar-photo/3/sub-alt-3.jpg"],
     },
     {
         id: 4,
         period: "Chiều 22/03",
-        company: "TC Data",
-        title: "(Dự kiến) Hội thảo công nghệ và định hướng việc làm cho sinh viên",
-        registrationUrl: "https://bit.ly/Seminar-TCData",
+        company: "TC DATA",
+        title: "Hội thảo công nghệ và định hướng việc làm cho sinh viên",
         description:
-            "Phiên hội thảo dự kiến với trọng tâm định hướng nghề nghiệp và cập nhật bức tranh công nghệ dành cho sinh viên.",
+            "Phiên hội thảo với trọng tâm định hướng nghề nghiệp và cập nhật bức tranh công nghệ dành cho sinh viên.",
         heroImage: "seminar-photo/4/hero.jpg",
-        popupImage: "seminar-photo/4/sub.jpg",
+        subImages: ["seminar-photo/4/sub.jpg", "seminar-photo/4/sub-alt-1.jpg", "seminar-photo/4/sub-alt-2.jpg", "seminar-photo/4/sub-alt-3.jpg"],
     },
 ];
 
@@ -135,20 +130,23 @@ const SeminarsPage = () => {
                             <X size={18} />
                         </button>
 
-                        <img className="seminars-page__modal-image" src={withBase(selectedSeminar.popupImage)} alt={`Ảnh chi tiết seminar ${selectedSeminar.company}`} />
+                        <img className="seminars-page__modal-image" src={withBase(selectedSeminar.heroImage)} alt={`Ảnh seminar ${selectedSeminar.company}`} />
                         <h3>{selectedSeminar.title}</h3>
                         <p>{selectedSeminar.period}</p>
                         <p>Đơn vị: {selectedSeminar.company}</p>
                         <p>{selectedSeminar.description}</p>
                         <p>Địa điểm: {seminarVenue}</p>
-                        <a
-                            className="seminars-page__modal-register"
-                            href={selectedSeminar.registrationUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Link đăng ký
-                        </a>
+
+                        <div className="seminars-page__sub-gallery">
+                            {selectedSeminar.subImages.map((image, index) => (
+                                <img
+                                    key={`${selectedSeminar.id}-${image}`}
+                                    className="seminars-page__sub-image"
+                                    src={withBase(image)}
+                                    alt={`Ảnh phụ ${index + 1} của seminar ${selectedSeminar.company}`}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}
