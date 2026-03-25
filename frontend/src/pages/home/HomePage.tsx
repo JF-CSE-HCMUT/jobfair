@@ -9,8 +9,10 @@ import "./HomePage.css";
 
 const VenueMapSection = lazy(() => import("./components/VenueMapSection"));
 const MAP_MODEL_CANDIDATES = [
+    `${import.meta.env.BASE_URL}Map3D.glb`,
     `${import.meta.env.BASE_URL}Map.glb`,
     `${import.meta.env.BASE_URL}Map`,
+    "https://media.githubusercontent.com/media/PenguAKAuseless/public-web-JF/main/frontend/public/Map3D.glb",
     "https://media.githubusercontent.com/media/PenguAKAuseless/public-web-JF/main/frontend/public/Map.glb",
 ];
 const MAP_RETRY_DELAY_MS = 30_000;
@@ -108,30 +110,18 @@ const HomePage = () => {
                         fallback={
                             <section id="venue-map" className="home-page__map-placeholder">
                                 <div className="home-page__map-placeholder-inner">
-                                    <h2>Bản đồ 3D khu vực sự kiện</h2>
-                                    <p>Đang tải bản đồ 3D...</p>
+                                    <h2>Bản đồ khu vực sự kiện</h2>
+                                    <p>Đang tải bản đồ...</p>
                                 </div>
                             </section>
                         }
                     >
-                        {isMapModelResolved && mapResolveStatus === "ready" ? (
-                            <VenueMapSection modelUrl={mapModelUrl} />
-                        ) : (
-                            <section id="venue-map" className="home-page__map-placeholder">
-                                <div className="home-page__map-placeholder-inner">
-                                    <h2>Bản đồ 3D khu vực sự kiện</h2>
-                                    {mapResolveStatus === "failed" ? (
-                                        <p>Bản đồ 3D tải không thành công (kiểm tra đường truyền).</p>
-                                    ) : (
-                                        <p>
-                                            Đang kiểm tra nguồn mô hình 3D
-                                            {mapRetryCount > 0 ? ` (lần thử ${mapRetryCount + 1}/${MAP_MAX_RETRIES + 1})` : ""}
-                                            ...
-                                        </p>
-                                    )}
-                                </div>
-                            </section>
-                        )}
+                        <VenueMapSection
+                            modelUrl={mapModelUrl}
+                            is3dReady={isMapModelResolved && mapResolveStatus === "ready"}
+                            is3dFailed={isMapModelResolved && mapResolveStatus === "failed"}
+                            retryLabel={mapRetryCount > 0 ? `lần thử ${mapRetryCount + 1}/${MAP_MAX_RETRIES + 1}` : null}
+                        />
                     </Suspense>
                 ) : (
                     <section id="venue-map" className="home-page__map-placeholder" ref={mapTriggerRef}>

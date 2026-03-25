@@ -83,9 +83,19 @@ const InteractiveModel = ({ url, isHovered, onFitCamera }: InteractiveModelProps
     );
 };
 
-const VenueMapSection = ({ modelUrl }: { modelUrl: string }) => {
+type VenueMapSectionProps = {
+    modelUrl: string;
+    is3dReady: boolean;
+    is3dFailed: boolean;
+    retryLabel: string | null;
+};
+
+const VenueMapSection = ({ modelUrl, is3dReady, is3dFailed, retryLabel }: VenueMapSectionProps) => {
     const [isHovered, setIsHovered] = useState(false);
+    const [mapMode, setMapMode] = useState<"2d" | "3d">("2d");
     const controlsRef = useRef<OrbitControlsImpl | null>(null);
+    const staticMapUrl = `${import.meta.env.BASE_URL}Map2D.png`;
+    const effectiveMode: "2d" | "3d" = mapMode === "3d" && is3dFailed ? "2d" : mapMode;
 
     const onFitCamera = (view: { position: THREE.Vector3; target: THREE.Vector3 }) => {
         if (!controlsRef.current) {
@@ -101,40 +111,77 @@ const VenueMapSection = ({ modelUrl }: { modelUrl: string }) => {
     return (
         <section id="venue-map" className="home-map">
             <div className="home-map__container">
-                <h2 className="home-map__title">Bản đồ 3D khu vực sự kiện</h2>
+                <h2 className="home-map__title">Bản đồ khu vực sự kiện</h2>
                 <p className="home-map__intro">Quan sát bố cục khu vực sự kiện để định hướng vị trí nhanh hơn trước khi tham gia ngày hội.</p>
+
+                <div className="home-map__mode-switch" role="tablist" aria-label="Chuyển chế độ bản đồ">
+                    <button
+                        type="button"
+                        role="tab"
+                        aria-selected={effectiveMode === "2d"}
+                        className={`home-map__mode-btn ${effectiveMode === "2d" ? "is-active" : ""}`}
+                        onClick={() => setMapMode("2d")}
+                    >
+                        2D
+                    </button>
+                    <button
+                        type="button"
+                        role="tab"
+                        aria-selected={effectiveMode === "3d"}
+                        className={`home-map__mode-btn ${effectiveMode === "3d" ? "is-active" : ""}`}
+                        onClick={() => setMapMode("3d")}
+                        disabled={is3dFailed}
+                        title={is3dFailed ? "Bản đồ 3D hiện không khả dụng" : undefined}
+                    >
+                        3D
+                    </button>
+                </div>
 
                 <div
                     className="home-map__viewer"
                     onPointerEnter={() => setIsHovered(true)}
                     onPointerLeave={() => setIsHovered(false)}
                 >
-                    <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 2]} gl={{ antialias: true, alpha: true }}>
-                        <ambientLight intensity={0.6} />
-                        <directionalLight position={[5, 5, 5]} intensity={1} />
+                    {effectiveMode === "2d" ? (
+                        <img className="home-map__image" src={staticMapUrl} alt="Bản đồ 2D khu vực sự kiện" loading="lazy" />
+                    ) : is3dReady ? (
+                        <>
+                            <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 2]} gl={{ antialias: true, alpha: true }}>
+                                <ambientLight intensity={0.6} />
+                                <directionalLight position={[5, 5, 5]} intensity={1} />
 
-                        <Suspense
-                            fallback={
-                                <Html center>
-                                    <span className="home-map__loading">Đang tải mô hình...</span>
-                                </Html>
-                            }
-                        >
-                            <InteractiveModel url={modelUrl} isHovered={isHovered} onFitCamera={onFitCamera} />
-                            <Environment preset="city" />
-                        </Suspense>
+                                <Suspense
+                                    fallback={
+                                        <Html center>
+                                            <span className="home-map__loading">Đang tải mô hình...</span>
+                                        </Html>
+                                    }
+                                >
+                                    <InteractiveModel url={modelUrl} isHovered={isHovered} onFitCamera={onFitCamera} />
+                                    <Environment preset="city" />
+                                </Suspense>
 
-                        <OrbitControls
-                            ref={controlsRef}
-                            enablePan={false}
-                            minPolarAngle={THREE.MathUtils.degToRad(80)}
-                            maxPolarAngle={THREE.MathUtils.degToRad(85)}
-                            minDistance={1.5}
-                            maxDistance={22}
-                            makeDefault
-                        />
-                    </Canvas>
-                    <div className="home-map__hint">Di chuột để xoay - Cuộn để thu phóng - Kéo để quan sát</div>
+                                <OrbitControls
+                                    ref={controlsRef}
+                                    enablePan={false}
+                                    minPolarAngle={THREE.MathUtils.degToRad(80)}
+                                    maxPolarAngle={THREE.MathUtils.degToRad(85)}
+                                    minDistance={1.5}
+                                    maxDistance={22}
+                                    makeDefault
+                                />
+                            </Canvas>
+                            <div className="home-map__hint">Di chuột để xoay - Cuộn để thu phóng - Kéo để quan sát</div>
+                        </>
+                    ) : (
+                        <div className="home-map__status" role="status" aria-live="polite">
+                            <p>
+                                {is3dFailed
+                                    ? "Bản đồ 3D tải không thành công (kiểm tra đường truyền)."
+                                    : `Đang kiểm tra nguồn mô hình 3D${retryLabel ? ` (${retryLabel})` : ""}...`}
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

@@ -2,22 +2,22 @@ import "./MilestonesSection.css";
 
 const milestones = [
     {
-        title: "200+ doanh nghiệp",
+        title: "500+ doanh nghiệp",
         description:
             "Từ những cái bắt tay e dè ngày đầu thành lập, mạng lưới kết nối nay vinh dự quy tụ hơn 200 tập đoàn, doanh nghiệp uy tín hàng đầu trong trong các lĩnh vực công nghệ, tài chính và dịch vụ. Sự kiện không chỉ đơn thuần là chiêu mộ hiền tài, mà đã nâng cấp trở thành bệ phóng truyền thông chiến lược, giúp các doanh nghiệp khắc sâu dấu ấn thương hiệu và lan tỏa tầm nhìn đến cộng đồng sinh viên nói chung và sinh viên Trường Đại học Bách khoa - ĐHQG-HCM nói riêng.",
     },
     {
-        title: "300+ gian hàng",
+        title: "800+ gian hàng",
         description:
             "Vượt xa khỏi giới hạn của một buổi tuyển dụng thông thường, hơn 300 gian hàng qua các năm đã kiến tạo nên những không gian đối thoại trực tiếp và cởi mở. Là nơi những ý tưởng lớn gặp nhau, CSE Job Fair xây dựng lên nơi mà nhà tuyển dụng và sinh viên có thể tự do chia sẻ, trao đổi thông qua những hoạt động thực tiễn, hấp dẫn, mang lại giá trị thiết thực nhất cho cẩ đôi bên.",
     },
     {
-        title: "20000+ sinh viên",
+        title: "35000+ sinh viên",
         description:
             "Thu hút hơn 20000 “kỹ sư tương lai” trên địa bàn toàn thành phố, Ngày hội Việc làm từ lâu đã vượt xa khỏi khuôn khổ của một sự kiện, trở thành “điểm hẹn” đáng tin cậy. Nơi đây là ngọn hải đăng soi đường, giúp các bạn sinh viên trẻ trui rèn bản lĩnh, thấu hiểu bức tranh đa màu, đa sắc của thị trường lao động, tự tin vạch ra định hướng vững chắc cho sự nghiệp tương lai.",
     },
     {
-        title: "100000+ cơ hội việc làm",
+        title: "20000+ cơ hội việc làm",
         description:
             "Với hơn 100000 cánh cửa sự nghiệp mở ra cho đa dạng các vị trí như thực tập sinh, fresher, nhân sự full-time được giới thiệu, CSE Job Fair là minh chứng sống động cho nỗ lực không ngừng nghỉ. Mỗi một cơ hội được trao tay là một bến đỗ lý tưởng cho người trẻ, đồng thời mang đến cái nhìn toàn cảnh sắc nét nhất về dòng chảy của thị trường lao động Việt Nam.",
     },
