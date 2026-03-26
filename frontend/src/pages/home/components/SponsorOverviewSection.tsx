@@ -2,14 +2,25 @@ import { motion } from "framer-motion";
 import "./SponsorOverviewSection.css";
 
 type Tier = {
+    key: "diamond" | "gold" | "silver" | "bronze";
     name: string;
     logos: Array<{ src: string; alt: string }>;
+};
+
+const tierLogoScaleByAlt: Record<string, number> = {
+    KMS: 1.4,
+    NVIDIA: 1.4,
+    "FPT Software": 1.6,
+    Sacombank: 1.2,
+    Gameloft: 1.3,
+    "Bản Viên": 1.2,
 };
 
 const withBase = (assetPath: string) => `${import.meta.env.BASE_URL}${assetPath}`;
 
 const tiers: Tier[] = [
     {
+        key: "diamond",
         name: "Kim cương",
         logos: [
             { src: withBase("VNG.png"), alt: "VNG" },
@@ -18,9 +29,11 @@ const tiers: Tier[] = [
         ],
     },
     {
+        key: "gold",
         name: "Vàng",
         logos: [
-            { src: withBase("FS.png"), alt: "FPT Software" },
+            { src: withBase("FPT.png"), alt: "FPT Software" },
+            { src: withBase("SACOM.png"), alt: "Sacombank" },
             { src: withBase("Veri.png"), alt: "Veri Silicon" },
             { src: withBase("IVC.png"), alt: "IVC" },
             { src: withBase("Nexon.png"), alt: "Nexon" },
@@ -28,14 +41,16 @@ const tiers: Tier[] = [
         ],
     },
     {
+        key: "silver",
         name: "Bạc",
         logos: [{ src: withBase("GL.png"), alt: "Gameloft" }],
     },
     {
+        key: "bronze",
         name: "Đồng",
         logos: [
             { src: withBase("FJ.png"), alt: "Fujinet" },
-            { src: withBase("BV.png"), alt: "BV" },
+            { src: withBase("BV.png"), alt: "Bản Viên" },
         ],
     },
 ];
@@ -51,7 +66,7 @@ const SponsorOverviewSection = () => {
                     viewport={{ once: true }}
                 >
                     <div className="home-sponsor-overview__intro-copy">
-                        <h2 className="home-sponsor-overview__title">Chào mừng bạn đến với CSE JOB FAIR 2026</h2>
+                        <h2 className="home-sponsor-overview__title">Chào mừng bạn đến với Ngày hội Việc làm - CSE JOB FAIR 2026</h2>
                         <p className="home-sponsor-overview__desc">
                             Sự kiện thường niên do khoa Khoa học và Kỹ thuật Máy tính, trường Đại học Bách khoa - ĐHQG-HCM tổ chức nhằm kết nối sinh viên với các doanh nghiệp hàng đầu trong lĩnh vực công nghệ. CSE Job Fair 2026 hứa hẹn mang đến một ngày hội việc làm sôi động với sự tham gia của nhiều nhà tuyển dụng uy tín, cơ hội thực tập và việc làm hấp dẫn, cùng nhiều hoạt động thú vị khác.
                             Hãy cùng khám phá và tận dụng cơ hội để định hướng tương lai nghề nghiệp của bạn tại CSE Job Fair 2026!
@@ -65,7 +80,7 @@ const SponsorOverviewSection = () => {
                     {tiers.map((tier, index) => (
                         <motion.div
                             key={tier.name}
-                            className="home-sponsor-overview__tier"
+                            className={`home-sponsor-overview__tier home-sponsor-overview__tier--${tier.key}`}
                             initial={{ opacity: 0, y: 28 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.22 }}
@@ -76,7 +91,7 @@ const SponsorOverviewSection = () => {
                                 <div className="home-sponsor-overview__tier-logos" aria-label={`Nhà tài trợ hạng ${tier.name}`}>
                                     {tier.logos.map((logo) => (
                                         <div key={logo.alt} className="home-sponsor-overview__tier-logo-item">
-                                            <img src={logo.src} alt={logo.alt} />
+                                            <img src={logo.src} alt={logo.alt} style={{ "--logo-scale": tierLogoScaleByAlt[logo.alt] ?? 1 } as React.CSSProperties} />
                                             <span className="home-sponsor-overview__logo-spot-name">{logo.alt}</span>
                                         </div>
                                     ))}

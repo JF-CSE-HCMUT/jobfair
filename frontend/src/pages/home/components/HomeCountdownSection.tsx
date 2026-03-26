@@ -109,11 +109,11 @@ const HomeCountdownSection = () => {
                         <span className="home-countdown__title-line">SẼ BẮT ĐẦU SAU</span>
                     </h1>
 
-                    <div className="home-countdown__timer">
+                    <div className="home-countdown__clock">
                         {countdownItems.map((item) => (
-                            <div key={item.label} className="home-countdown__timer-item">
-                                <div className="home-countdown__timer-value">{String(item.value).padStart(2, "0")}</div>
-                                <span className="home-countdown__timer-label">{item.label}</span>
+                            <div key={item.label} className="home-countdown__clock-item">
+                                <div className="home-countdown__clock-value">{String(item.value).padStart(2, "0")}</div>
+                                <span className="home-countdown__clock-label">{item.label}</span>
                             </div>
                         ))}
                     </div>
@@ -132,8 +132,8 @@ const HomeCountdownSection = () => {
                         <iframe
                             className="home-countdown__video"
                             src={HOME_VIDEO_EMBED_URL}
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            title="CSE Job Fair 2026 Intro Video"
+                            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                             allowFullScreen>
                         </iframe>
                     ) : (

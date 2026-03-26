@@ -9,6 +9,19 @@ const ScrollToHash = () => {
   const location = useLocation();
 
   useEffect(() => {
+    if (!("scrollRestoration" in window.history)) {
+      return;
+    }
+
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+
+    return () => {
+      window.history.scrollRestoration = previous;
+    };
+  }, []);
+
+  useEffect(() => {
     const hash = location.hash.slice(1);
 
     if (!hash) {
@@ -19,7 +32,7 @@ const ScrollToHash = () => {
     const scrollToTarget = () => {
       const target = document.getElementById(decodeURIComponent(hash));
       if (target) {
-        target.scrollIntoView({ block: "start", behavior: "smooth" });
+        target.scrollIntoView({ block: "start", behavior: "auto" });
       }
     };
 

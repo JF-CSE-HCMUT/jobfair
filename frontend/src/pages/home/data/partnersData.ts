@@ -42,7 +42,7 @@ export const partners: Partner[] = [
     {
         id: 3,
         name: "FPT Software, T\u1EADp \u0111o\u00E0n FPT",
-        logoFile: "FS.png",
+        logoFile: "FPT.png",
         description: "Th\u00F4ng tin chi ti\u1EBFt \u0111ang \u0111\u01B0\u1EE3c c\u1EADp nh\u1EADt.",
         websiteUrl: "https://fptsoftware.com/",
         recruitmentNews: [
@@ -85,7 +85,7 @@ export const partners: Partner[] = [
     {
         id: 6,
         name: "C\u00F4ng ty TNHH ISB Vi\u1EC7t Nam (IVC)",
-        logoFile: "ISB.png",
+        logoFile: "IVC.png",
         description: "Th\u00F4ng tin chi ti\u1EBFt \u0111ang \u0111\u01B0\u1EE3c c\u1EADp nh\u1EADt.",
         websiteUrl: "https://isb-vietnam.com.vn/",
         recruitmentNews: [
@@ -217,7 +217,7 @@ export const partners: Partner[] = [
     {
         id: 16,
         name: "C\u00F4ng ty TNHH NEC Vi\u1EC7t Nam",
-        logoFile: "NEC.png",
+        logoFile: "NECVN.png",
         description: "Th\u00F4ng tin chi ti\u1EBFt \u0111ang \u0111\u01B0\u1EE3c c\u1EADp nh\u1EADt.",
         websiteUrl: "https://vn.nec.com/",
         recruitmentNews: [
