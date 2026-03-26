@@ -308,7 +308,7 @@ const SponsorDetailSection = () => {
                                 />
                             </div>
                             <h3 className="home-partners__company-name">{partner.name}</h3>
-                            <p>{toPreviewText(partner.description, 130)}</p>
+                            <p className="home-partners__positions-label">Vị trí tuyển dụng</p>
                             <ul className="home-partners__news-preview">
                                 {partner.recruitmentNews.slice(0, 2).map((item) => (
                                     <li key={`${partner.id}-${item}`}>{toPreviewText(item, 92)}</li>
@@ -384,7 +384,7 @@ const SponsorDetailSection = () => {
                         <p className="home-partners__modal-desc">{selectedPartner.description}</p>
 
                         <div className="home-partners__modal-block">
-                            <p className="home-partners__modal-label">Tin tuyển dụng</p>
+                            <p className="home-partners__modal-label">Vị trí tuyển dụng</p>
                             <ul>
                                 {selectedPartner.recruitmentNews.map((item) => (
                                     <li key={`${selectedPartner.id}-${item}`}>{toPreviewText(item, 280)}</li>

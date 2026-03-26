@@ -128,11 +128,19 @@
 
 .home-partners__news-preview {
     margin: 0;
-    padding-left: 1rem;
+    padding-left: 0;
     color: #3f5c80;
     font-size: 0.82rem;
     line-height: 1.38;
     min-height: 2.2rem;
+}
+
+.home-partners__positions-label {
+    margin: 0;
+    font-style: italic;
+    color: #2f5f92;
+    font-weight: 600;
+    font-size: 0.88rem;
 }
 
 .home-partners__news-preview li {
