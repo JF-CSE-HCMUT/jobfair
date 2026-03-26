@@ -4,7 +4,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://PenguAKAuseless.github.io/public-web-JF",
+  "homepage": "https://PenguAKAuseless.github.io/jobfair/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

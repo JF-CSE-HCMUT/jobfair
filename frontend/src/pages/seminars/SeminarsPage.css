@@ -1,6 +1,7 @@
 .seminars-page {
     min-height: 100vh;
     background: var(--surface-base);
+    overflow-x: hidden;
 }
 
 .seminars-page__main {

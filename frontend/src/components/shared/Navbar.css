@@ -109,10 +109,10 @@
     .shared-navbar__mobile {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0;
         width: min(1200px, 92vw);
         margin: 0 auto 0.9rem;
-        padding: 0.85rem;
+        padding: 0.45rem 0.85rem 0.85rem;
         border: 1px solid var(--border-color);
         border-radius: 12px;
         background: #ffffff;
@@ -121,20 +121,23 @@
     .shared-navbar__mobile-link,
     .shared-navbar__mobile-register {
         display: block;
-        padding: 0.52rem 0.6rem;
-        border-radius: 8px;
+        padding: 0.62rem 0;
         text-decoration: none;
         font-size: 0.9rem;
     }
 
     .shared-navbar__mobile-link {
         color: var(--text-main);
-        background: var(--surface-subtle);
+        border-bottom: 1px solid var(--border-color);
     }
 
     .shared-navbar__mobile-register {
         color: #ffffff;
         background: var(--accent-orange);
         font-weight: 700;
+        margin-top: 0.6rem;
+        border-radius: 8px;
+        text-align: center;
+        padding: 0.62rem 0.85rem;
     }
 }

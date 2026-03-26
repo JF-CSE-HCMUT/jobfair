@@ -1,6 +1,7 @@
 .brand-assets-page {
     min-height: 100vh;
     background: var(--surface-base);
+    overflow-x: hidden;
 }
 
 .brand-assets-page__main {
@@ -16,80 +17,258 @@
     width: min(1200px, 92vw);
     margin: 0 auto;
     display: grid;
-    gap: 0.9rem;
+    gap: 1rem;
+}
+
+.brand-assets-page__hero {
+    border-left: 4px solid var(--accent-orange);
+    padding-left: 0.8rem;
+}
+
+.brand-assets-page__eyebrow {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--accent-orange);
+    font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
 .brand-assets-page__hero h1 {
-    margin: 0;
+    margin: 0.3rem 0 0;
     color: var(--text-main);
-    font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+    font-size: clamp(1.45rem, 2.7vw, 2.4rem);
 }
 
 .brand-assets-page__hero p {
-    margin: 0.5rem 0 0;
+    margin: 0.48rem 0 0;
     color: var(--text-muted);
-    max-width: 760px;
-    font-size: 1rem;
+    max-width: 960px;
+    font-size: 0.96rem;
     line-height: 1.5;
 }
 
-.brand-assets-page__grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.8rem;
-}
-
-.brand-assets-page__item {
-    border: 1px solid var(--border-color);
-    border-radius: 18px;
-    background: #ffffff;
-    overflow: hidden;
-}
-
-.brand-assets-page__image {
-    display: block;
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.brand-assets-page__actions {
+.brand-assets-page__sheet {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.7rem;
-    padding: 0.62rem 0.8rem;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
-.brand-assets-page__name {
-    color: var(--text-main);
-    font-weight: 700;
+.brand-assets-page__block {
+    padding-top: 0.35rem;
+    display: grid;
+    justify-items: start;
+}
+
+.brand-assets-page__top-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.brand-assets-page__top-item {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.brand-assets-page__top-item h2 {
+    justify-self: start;
+}
+
+.brand-assets-page__block--center {
+    justify-items: center;
+}
+
+.brand-assets-page__block h2 {
+    margin: 0;
+    color: #0e1a4c;
+    font-size: clamp(1.15rem, 2vw, 1.8rem);
+    position: relative;
+    padding-left: 0.7rem;
+    justify-self: start;
+}
+
+.brand-assets-page__block h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.08em;
+    width: 3px;
+    height: 0.9em;
+    border-radius: 999px;
+    background: var(--accent-orange);
+}
+
+.brand-assets-page__logo-main,
+.brand-assets-page__logo-sub,
+.brand-assets-page__guide-image {
+    width: min(100%, 520px);
+    display: block;
+    object-fit: contain;
+    margin: 0.2rem auto;
+}
+
+.brand-assets-page__media-frame {
+    width: min(100%, 520px);
+    min-height: 260px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    margin-top: 0.6rem;
+}
+
+.brand-assets-page__block--center h2,
+.brand-assets-page__top-item h2 {
+    margin-bottom: 1rem;
+}
+
+.brand-assets-page__logo-main {
+    height: 230px;
+}
+
+.brand-assets-page__logo-sub {
+    height: 100px;
+}
+
+.brand-assets-page__guide-image {
+    height: 230px;
 }
 
 .brand-assets-page__download-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.45rem 0.78rem;
-    border-radius: 10px;
+    padding: 0.4rem 0.72rem;
+    border-radius: 8px;
     background: var(--accent-orange);
     color: #ffffff;
     text-decoration: none;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 0.86rem;
+    font-size: 0.78rem;
+    line-height: 1;
+    margin-top: 0.7rem;
 }
 
 .brand-assets-page__download-link:hover {
     background: var(--accent-orange-hover);
 }
 
+.brand-assets-page__idea-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.brand-assets-page__idea-item {
+    text-align: center;
+    padding: 0.25rem 0.2rem;
+}
+
+.brand-assets-page__idea-item img {
+    width: min(100%, 180px);
+    height: 90px;
+    object-fit: contain;
+}
+
+.brand-assets-page__idea-item--number strong {
+    display: inline-block;
+    min-height: 90px;
+    line-height: 1;
+    font-family: var(--font-display);
+    font-size: clamp(4.1rem, 8vw, 5.8rem);
+    color: var(--accent-orange);
+}
+
+.brand-assets-page__idea-item span {
+    display: block;
+    margin-top: 0.5rem;
+    color: #11151f;
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.brand-assets-page__palette-row {
+    display: grid;
+    gap: 0.5rem;
+    width: min(100%, 1000px);
+}
+
+.brand-assets-page__palette-row+.brand-assets-page__palette-row {
+    margin-top: 0.9rem;
+}
+
+.brand-assets-page__palette-row h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 3.6vw, 2.8rem);
+    color: #0f0950;
+    text-transform: uppercase;
+}
+
+.brand-assets-page__swatches {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.72rem;
+}
+
+.brand-assets-page__swatches--primary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.brand-assets-page__swatch-card p {
+    margin: 0.1rem 0 0;
+    font-style: normal;
+    color: #182132;
+    font-size: 0.8rem;
+    line-height: 1.28;
+}
+
+.brand-assets-page__swatch {
+    width: clamp(64px, 9vw, 132px);
+    height: clamp(64px, 9vw, 132px);
+    border-radius: 0;
+    border: 1px solid #d3dcea;
+    justify-self: center;
+}
+
 @media (max-width: 960px) {
-    .brand-assets-page__grid {
+    .brand-assets-page__section {
+        padding: 1.1rem 0;
+    }
+
+    .brand-assets-page__top-row {
         grid-template-columns: 1fr;
     }
 
-    .brand-assets-page__image {
-        height: 200px;
+    .brand-assets-page__logo-main,
+    .brand-assets-page__guide-image {
+        height: 210px;
+    }
+
+    .brand-assets-page__media-frame {
+        min-height: 210px;
+    }
+
+    .brand-assets-page__logo-sub {
+        height: 86px;
+    }
+
+    .brand-assets-page__swatches,
+    .brand-assets-page__swatches--primary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .brand-assets-page__idea-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .brand-assets-page__palette-row h3 {
+        font-size: clamp(1.2rem, 10vw, 2.2rem);
     }
 }
