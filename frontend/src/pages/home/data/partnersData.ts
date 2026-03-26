@@ -89,8 +89,8 @@ export const partners: Partner[] = [
     {
         id: 6,
         name: "C\u00F4ng ty TNHH ISB Vi\u1EC7t Nam (IVC)",
-        logoFile: "ISB.png",
-        description: "Th\u00F4ng tin chi ti\u1EBFt \u0111ang \u0111\u01B0\u1EE3c c\u1EADp nh\u1EADt.",
+        logoFile: "IVC.png",
+        description: "IVC là một trong những công ty công nghệ hàng đầu tại Việt Nam, chuyên cung cấp các giải pháp phần mềm và dịch vụ công nghệ thông tin chất lượng cao.",
         websiteUrl: "https://isb-vietnam.com.vn/",
         recruitmentNews: [
             "Fullstack Development",
@@ -234,7 +234,7 @@ export const partners: Partner[] = [
         id: 16,
         name: "C\u00F4ng ty TNHH NEC Vi\u1EC7t Nam",
         logoFile: "NEC.png",
-        description: "Th\u00F4ng tin chi ti\u1EBFt \u0111ang \u0111\u01B0\u1EE3c c\u1EADp nh\u1EADt.",
+        description: "NEC là công ty chuyên cung cấp các giải pháp công nghệ thông tin và dịch vụ cho doanh nghiệp.",
         websiteUrl: "https://vn.nec.com/",
         recruitmentNews: [
             "Backend Developer Intern (JLPT Preferred)",
