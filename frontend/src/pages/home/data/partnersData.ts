@@ -46,7 +46,7 @@ export const partners: Partner[] = [
     {
         id: 3,
         name: "FPT Software, T\u1EADp \u0111o\u00E0n FPT",
-        logoFile: "FS.png",
+        logoFile: "FPT.png",
         description: "FPT Software là một trong những công ty phần mềm hàng đầu tại Việt Nam, chuyên cung cấp các giải pháp phần mềm chất lượng cao cho nhiều lĩnh vực khác nhau.",
         websiteUrl: "https://fptsoftware.com/",
         recruitmentNews: [
@@ -233,7 +233,7 @@ export const partners: Partner[] = [
     {
         id: 16,
         name: "C\u00F4ng ty TNHH NEC Vi\u1EC7t Nam",
-        logoFile: "NEC.png",
+        logoFile: "NECVN.png",
         description: "NEC là công ty chuyên cung cấp các giải pháp công nghệ thông tin và dịch vụ cho doanh nghiệp.",
         websiteUrl: "https://vn.nec.com/",
         recruitmentNews: [
