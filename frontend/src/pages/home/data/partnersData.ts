@@ -390,7 +390,7 @@ export const partners: Partner[] = [
             "AI Intern",
         ],
         documents: [
-            "https://drive.google.com/open?id=1AW8RjlMIaIxkVDQZ9AEXZeUPJOkMtl4E",
+            "https://drive.google.com/file/d/1RAFANSZhwUsqez1jFY5VMoyYRwvgcyHW/view",
         ],
     },
     {
