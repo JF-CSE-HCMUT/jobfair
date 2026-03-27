@@ -178,15 +178,6 @@
     object-fit: contain;
 }
 
-.brand-assets-page__idea-item--number strong {
-    display: inline-block;
-    min-height: 90px;
-    line-height: 1;
-    font-family: var(--font-display);
-    font-size: clamp(4.1rem, 8vw, 5.8rem);
-    color: var(--accent-orange);
-}
-
 .brand-assets-page__idea-item span {
     display: block;
     margin-top: 0.75rem;

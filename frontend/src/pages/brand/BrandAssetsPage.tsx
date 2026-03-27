@@ -63,8 +63,8 @@ const BrandAssetsPage = () => {
                                         <img src={withBase("brand-assets/JF.png")} alt="JF" />
                                         <span>Tên viết tắt của Job Fair</span>
                                     </div>
-                                    <div className="brand-assets-page__idea-item brand-assets-page__idea-item--number">
-                                        <strong>20</strong>
+                                    <div className="brand-assets-page__idea-item">
+                                        <img src={withBase("brand-assets/20.png")} alt="20" />
                                         <span>20 năm tổ chức</span>
                                     </div>
                                     <div className="brand-assets-page__idea-item">
